@@ -14,17 +14,17 @@ export class ListMaterielComponent implements OnInit, OnDestroy {
   constructor( private listmaterielService: ListMaterielService) { }
 
   ngOnInit() {
-    this.materielSubscription =
+    /*this.materielSubscription =
       this.listmaterielService.materielsSubject.subscribe(
         (materiels: any[]) => {
           this.materiels = materiels;
         }
       );
-    this.listmaterielService.emitMaterielSubject();
+    this.listmaterielService.emitMaterielSubject();*/
   }
 
   ngOnDestroy() {
-    this.materielSubscription.unsubscribe();
+    /*this.materielSubscription.unsubscribe();*/
   }
 
 }

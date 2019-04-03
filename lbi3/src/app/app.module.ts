@@ -42,6 +42,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import {AuthGuard} from './views/services/auth-guard.service';
 import {AuthService} from './views/services/auth.service';
 import {DefaultLayoutComponent} from './containers/default-layout/default-layout.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -60,7 +61,7 @@ import {DefaultLayoutComponent} from './containers/default-layout/default-layout
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-
+    HttpClientModule,
   ],
   declarations: [
     AppComponent,
@@ -70,8 +71,6 @@ import {DefaultLayoutComponent} from './containers/default-layout/default-layout
     LoginComponent,
     RegisterComponent,
     DefaultLayoutComponent
-
-
   ],
   providers: [
     AuthGuard,

@@ -19,8 +19,8 @@ export class AjoutMaterielComponent implements OnInit {
   }
   ngOnInit() {
   }
-  onSubmit2(d) {
-    /*const select1 = form.value['select1'];
+  onSubmit2(form: NgForm) {
+    const select1 = form.value['select1'];
     const marqueinput = form.value['marqueinput'];
     const modeleinput = form.value['modeleinput'];
     const matriinput = form.value['matriinput'];
@@ -28,7 +28,12 @@ export class AjoutMaterielComponent implements OnInit {
     const select22 = form.value['select22'];
     const date4 = form.value['date4'];
     const date3 = form.value['date3'];
-    this.listmaterielService.addMateriel(select1, marqueinput, modeleinput, matriinput, select21, select22, date4, date3);*/
+    this.listmaterielService.addMateriel(select1, marqueinput, modeleinput, matriinput, select21, select22, date4, date3);
+    this.router.navigate(['/materiels/list-materiel']);
+
+  }
+  onSubmit54(d) {
+
     this.router.navigate(['/materiels/list-materiel']);
 
     this.resetErrors();

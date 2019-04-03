@@ -15,7 +15,8 @@ import {HttpClient, HttpHandler} from '@angular/common/http';
   imports: [
     CommonModule,
     MaterielsRoutingModule,
-    FormsModule
+    FormsModule,
+
   ],
   declarations: [
     AjoutMaterielComponent,
@@ -25,8 +26,7 @@ import {HttpClient, HttpHandler} from '@angular/common/http';
   ],
   providers: [
     ListMaterielService,
-    HttpClient,
-    HttpHandler
+
   ]
 })
 export class MaterielsModule { }
