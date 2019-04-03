@@ -38,7 +38,9 @@ export class AjoutMaterielComponent implements OnInit {
 
     this.resetErrors();
     console.log(this.materiel);
-    this.listmaterielService.saveMaterielToServer(this.materiel)
+    const materielJson = JSON.stringify(this.materiel);
+    console.log(materielJson);
+    this.listmaterielService.saveMaterielToServer(materielJson)
       .subscribe(
         (res: Materiel[]) => {
           // Update the list of materiel
