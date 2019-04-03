@@ -1,14 +1,18 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {Observable, Subject, throwError} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
+import {Materiel} from '../materiels/materiel';
+import {catchError, map} from 'rxjs/operators';
 
 @Injectable ()
 export class ListMaterielService {
 
-  constructor() {
+  materiels: Materiel[];
+
+  constructor(private httpMateriel: HttpClient) {
   }
 
-  private materiels = [];
+
 
 
   materielsSubject = new Subject<any[]>();
@@ -19,7 +23,6 @@ export class ListMaterielService {
 
   addMateriel( select1: string, marqueinput: string, modeleinput: string, matriinput: string, select21: string, select22: string, date4: string, date3: string) {
     const materielObject = {
-      id: 0,
       select1: '',
       marqueinput: '',
       modeleinput: '',
@@ -41,17 +44,20 @@ export class ListMaterielService {
     this.materiels.push(materielObject);
   }
 
- /* saveMaterielToServer() {
-    this.httpMateriel
-      .post('https://projet-lbi.firebaseio.com//client.json', this.materiels)
-      .subscribe(
-        () => {
-          console.log('Enregistrement terminé !');
-        },
-        (error) => {
-          console.log('Erreur ! : ' + error)
-        }
-      );
-  }*/
+  saveMaterielToServer(materiel: Materiel): Observable<Materiel[]> {
+    return this.httpMateriel.post('https://projet-lbi.firebaseio.com//client.json', {data: materiel})
+      .pipe(map((res) => {
+          this.materiels.push(res['data']);
+          return this.materiels;
+        }),
+        catchError(this.handleError));
+  }
+
+  private handleError(error: HttpErrorResponse) {
+      console.log(error);
+
+      // return an observable with a user friendly message
+      return throwError('Error! something went wrong.');
+  }
 
 }

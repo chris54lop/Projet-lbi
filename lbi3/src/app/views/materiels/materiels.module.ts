@@ -8,6 +8,7 @@ import {ListMaterielService} from '../services/list-materiel.service';
 import {FormsModule} from '@angular/forms';
 import {AjoutTypeComponent} from './ajout-type.component';
 import {MaterielComponent} from './materiel.component';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import {MaterielComponent} from './materiel.component';
     MaterielComponent
   ],
   providers: [
-    ListMaterielService
+    ListMaterielService,
+    HttpClient,
+    HttpHandler
   ]
 })
 export class MaterielsModule { }
