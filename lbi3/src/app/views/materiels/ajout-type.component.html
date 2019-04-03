@@ -1,0 +1,28 @@
+<form (ngSubmit)="onSubmit3(d)" #d="ngForm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header" style="background-color: #009DDE">
+          <div style="text-align: center; color: #FFFFFF"> <strong>FORMULAIRE D'AJOUT DE TYPE DE MATERIEL</strong></div>
+        </div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="type" style="color: #7AB51C">Type</label>
+            <div class="col-md-9">
+              <input type="text" id="type" name="type" class="form-control" placeholder="Type.." ngModel required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div>
+            <div>
+              <button type="submit" class="btn btn-sm btn-primary" [disabled]="d.invalid"><i class="fa fa-dot-circle-o"></i> Enregistrer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

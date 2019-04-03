@@ -1,0 +1,78 @@
+<form (ngSubmit)="onSubmit(g)" #g="ngForm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header" style="background-color: #009DDE">
+          <div style="text-align: center; color: #FFFFFF"><strong>AJOUT UTILISATEUR</strong></div>
+        </div>
+        <div class="card-body">
+
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="name7" style="color: #7AB51C">Nom</label>
+            <div class="col-md-6">
+              <input type="text" id="name7" name="name7" class="form-control" placeholder="Nom..." ngModel required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="prenom5" style="color: #7AB51C">Prénom</label>
+            <div class="col-md-6">
+              <input type="text" id="prenom5" name="prenom5" class="form-control" placeholder="Prénom..." ngModel required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="select23" style="color: #7AB51C">Niveau d'accées</label>
+            <div class="col-md-6">
+              <select id="select23" name="select23" class="form-control" ngModel required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="login" style="color: #7AB51C">Login</label>
+            <div class="col-md-6">
+              <input type="text" id="login" name="login" class="form-control" placeholder="Login..." ngModel required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="password" style="color: #7AB51C">Mot de passe</label>
+            <div class="col-md-6">
+              <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe..." ngModel required>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div>
+        <div>
+          <button type="submit" class="btn btn-sm btn-primary" [disabled]="g.invalid"><i class="fa fa-dot-circle-o"></i> Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<p>
+  Exporting an excel file of type .xslx !!!
+</p>
+<p>Export as XLSX by clicking the below button</p>
+
+<button (click)="exportAsXLSX()"><i class="fa fa-file-excel-o" style="color: #7AB51C"> Export to Excel</i></button>
+<table>
+  <tr>
+    <td>Eid</td>
+    <td>Ename</td>
+    <td>Esal</td>
+  </tr>
+  <tr *ngFor="let item of data">
+    <td>{{item.eid}}</td>
+    <td>{{item.ename}}</td>
+    <td>{{item.esal}}</td>
+  </tr>
+</table>
+

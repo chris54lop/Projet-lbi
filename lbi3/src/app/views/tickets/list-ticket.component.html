@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" style="background-color: #009DDE">
+        <div style="text-align: center; color: #FFFFFF"> <strong>LISTE TICKETS</strong></div>
+      </div>
+      <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th width=150 style="text-align: center; color: #7AB51C">Type</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Etat du ticket</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Date d'appel</th>
+                <th width=150 style="text-align: center; color: #7AB51C">Date d'intervention</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Client</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Code postal</th>
+                <th width=300 style="text-align: center; color: #7AB51C">Nom du technicien</th>
+                <th width=150></th>
+              </tr>
+              </thead>
+            </table>
+                <app-ticket
+                  *ngFor="let ticket of tickets"
+                             [listticketselect17]="ticket.select17"
+                             [listticketdateinput]="ticket.dateinput"
+                             [listticketdate1input]="ticket.date1input"
+                             [listticketselect3]="ticket.select3"
+                             [listticketvilleinput]="ticket.villeinput"
+                             [listtickettechnicien1]="ticket.technicien1"
+                             [listtickettechnicien2]="ticket.technicien2"
+                             [listtickettechnicien3]="ticket.technicien3"
+                  [listtickettechnicien4]="ticket.technicien4"
+                             [listticketfiche]="ticket.fiche"
+                  [listticketselect19]="ticket.select19"
+                  [listticketdate2input]="ticket.date2input"
+                  [listticketdate3input]="ticket.date3input"
+                  [listticketselect9]="ticket.select9"
+                  [listticketville1input]="ticket.ville1input"
+                  [listtickettechnicien5]="ticket.technicien5"
+                  [listtickettechnicien6]="ticket.technicien6"
+                  [listtickettechnicien7]="ticket.technicien7"
+                  [listtickettechnicien8]="ticket.technicien8"
+                ></app-ticket>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,76 @@
+<form (ngSubmit)="onSubmit(d)" #d="ngForm">
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header" style="background-color: #FFFFFF">
+        <img src="assets\img\brand\lbi_txt.png" alt="LBI_Designation"/>
+        <H3 style="text-align: center; color: #7AB51C" ><strong>FORMULAIRE DE DEMANDE DE TICKET</strong></H3>
+      </div>
+      <div class="card-body">
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="radios" style="color: #7AB51C">Type</label>
+          <div class="col-md-9 col-form-label">
+            <div class="form-check form-check-inline mr-1" id="radios">
+              <input class="form-check-input" type="radio" name="radios" id="Radio1" value="Installation"  ngModel>
+              <label class="form-check-label" for="Radio1" style="color: #7AB51C">Installation</label>
+            </div>
+            <div class="form-check form-check-inline mr-1">
+              <input class="form-check-input" type="radio" name="radios" id="Radio2" value="Intervention" ngModel>
+              <label class="form-check-label" for="Radio2" style="color: #7AB51C">Intervention</label>
+            </div>
+          </div>
+        </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="date1" style="color: #7AB51C">Date</label>
+            <div class="col-md-6">
+              <input type="date" id="date1" name="date1" class="form-control" ngModel>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="recep" style="color: #7AB51C">Récepteur de l'appel</label>
+            <div class="col-md-6">
+              <input type="text" id="recep" name="recep" class="form-control" ngModel>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="client" style="color: #7AB51C">Client</label>
+            <div class="col-md-6">
+              <input type="text" id="client" name="client" class="form-control" ngModel required>
+            </div>
+          </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="radios1" style="color: #7AB51C">Type de matériel</label>
+          <div class="col-md-9 col-form-label">
+            <div class="form-check form-check-inline mr-1" id="radios1">
+              <input class="form-check-input" type="radio" name="radios1" id="Radio3" value="TBI"  ngModel>
+              <label class="form-check-label" for="Radio3" style="color: #7AB51C">TBI</label>
+            </div>
+            <div class="form-check form-check-inline mr-1">
+              <input class="form-check-input" type="radio" name="radios1" id="Radio4" value="Imprimante" ngModel>
+              <label class="form-check-label" for="Radio4" style="color: #7AB51C">Imprimante</label>
+            </div>
+            <div class="form-check form-check-inline mr-1">
+              <input class="form-check-input" type="radio" name="radios1" id="Radio5" value="Informatique"  ngModel>
+              <label class="form-check-label" for="Radio5" style="color: #7AB51C">Informatique</label>
+            </div>
+            <div class="form-check form-check-inline mr-1">
+              <input class="form-check-input" type="radio" name="radios1" id="Radio6" value="Vidéoprojecteur"  ngModel>
+              <label class="form-check-label" for="Radio6" style="color: #7AB51C">Vidéoprojecteur</label>
+            </div>
+          </div>
+        </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="descri" style="color: #7AB51C">Descriptif</label>
+            <div class="col-md-12">
+              <textarea id="descri" name="descri" rows="4" class="form-control" ngModel></textarea>
+            </div>
+          </div>
+
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-primary" [disabled]="d.invalid"><i class="fa fa-dot-circle-o"></i>Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>

@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" style="background-color: #009DDE">
+        <div style="text-align: center; color: #FFFFFF"> <strong>LISTE MATERIELS</strong></div>
+      </div>
+      <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th width=150 style="text-align: center; color: #7AB51C">Type</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Marque</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Client</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Garantie</th>
+              </tr>
+              </thead>
+            </table>
+            <app-materiel *ngFor="let materiel of materiels"
+                          [listmaterielselect1]="materiel.select1"
+                          [listmaterielmarqueinput]="materiel.marqueinput"
+                          [listmaterielselect22]="materiel.select22"
+                          [listmaterieldate4]="materiel.date4"></app-materiel>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,86 @@
+<form (ngSubmit)="onSubmit2(d)" #d="ngForm">
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" style="background-color: #009DDE">
+        <div style="text-align: center; color: #FFFFFF"> <strong>FORMULAIRE D'AJOUT DE MATERIEL</strong></div>
+      </div>
+      <div class="card-body">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="select1" style="color: #7AB51C">Type</label>
+            <div class="col-md-9">
+              <select id="select1" name="select1" class="form-control" ngModel required>
+                <option value="TBI">TBI</option>
+                <option value="Informatique">Informatique</option>
+                <option value="Imprimante">Imprimante</option>
+                <option value="Vidéoprojecteur">Vidéoprojecteur</option>
+                <option value="Ecran interactif">Ecran interactif</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="marqueinput" style="color: #7AB51C">Marque</label>
+            <div class="col-md-9">
+              <input type="text" id="marqueinput" name="marqueinput" class="form-control" placeholder="Marque.." ngModel required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="modeleinput" style="color: #7AB51C">Modèle</label>
+            <div class="col-md-9">
+              <input type="text" id="modeleinput" name="modeleinput" class="form-control" placeholder="Modèle.." ngModel required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="matriinput" style="color: #7AB51C">Matricule</label>
+            <div class="col-md-9">
+              <input type="text" id="matriinput" name="matriinput" class="form-control" placeholder="Matricule.." ngModel required>
+            </div>
+          </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="select21" style="color: #7AB51C">Donneur d'ordre</label>
+          <div class="col-md-9">
+            <select id="select21" name="select21" class="form-control" ngModel>
+              <option value="Univ Lorraine">Univ Lorraine</option>
+              <option value="Mairie Nancy">Mairie Nancy</option>
+              <option value="Conseil régional">Conseil régional</option>
+              <option value="Dalkia">Dalkia</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="select22" style="color: #7AB51C">Client</label>
+          <div class="col-md-9">
+            <select id="select22" name="select22" class="form-control" ngModel>
+              <option value="Polytech">Polytech</option>
+              <option value="Emile Gallé">Emile Gallé</option>
+              <option value="Dalkia">Dalkia</option>
+              <option value="Jacques Callot">Jacques Callot</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="date3"style="color: #7AB51C">Date d'achat</label>
+          <div class="col-md-9">
+            <input class="form-control" id="date3" type="date" name="date3" placeholder="Date" ngModel>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-form-label" for="date4"style="color: #7AB51C">Fin de garantie</label>
+          <div class="col-md-9">
+            <input class="form-control" id="date4" type="date" name="date4" placeholder="Date" ngModel>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div>
+          <div>
+            <button type="submit" class="btn btn-sm btn-primary" [disabled]="d.invalid"><i class="fa fa-dot-circle-o"></i> Enregistrer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>

@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" style="background-color: #009DDE">
+        <div style="text-align: center; color: #FFFFFF"> <strong>Table de résultats</strong></div>
+      </div>
+      <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th style="text-align: center">Etablissement</th>
+                <th style="text-align: center">Adresse</th>
+                <th style="text-align: center">Code postal</th>
+                <th style="text-align: center">Nombre de tickets</th>
+                <th style="text-align: center">Nombre de matériels installés</th>
+                <th style="text-align: center">Nom du donneur d'ordre</th>
+                <th>  </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td style="text-align: center">Yiorgos Avraamu</td>
+                <td style="text-align: center">2012/01/01</td>
+                <td style="text-align: center">54000</td>
+                <td style="text-align: center">7</td>
+                <td style="text-align: center">5</td>
+                <td style="text-align: center">Jean</td>
+                <td><div>
+                  <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Modifier</button>
+                  <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> Détails</button>
+                </div></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-sm btn-success" (click)="exportAsXLSX()"><i class="fa fa-file-excel-o"> Export to Excel</i></button>
+

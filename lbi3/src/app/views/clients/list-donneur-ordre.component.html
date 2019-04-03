@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" style="background-color: #009DDE">
+        <div style="text-align: center; color: #FFFFFF"> <strong>LISTE DONNEUR D' ORDRE</strong></div>
+      </div>
+      <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th width=150 style="text-align: center; color: #7AB51C">Intitulé</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Nombre de clients</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Contact</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Téléphone contact</th>
+                <th width=200 style="text-align: center; color: #7AB51C">Mail contact</th>
+                <th width=100></th>
+              </tr>
+              </thead>
+            </table>
+            <app-donneur *ngFor="let donneur of donneurs"
+                        [listdonneurordreintitinput]="donneur.intitinput"
+                        [listdonneurordrename2input]="donneur.name2input"
+                        [listdonneurordretel2input]="donneur.tel2input"
+                        [listdonneurordreemail2input]="donneur.email2input"></app-donneur>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

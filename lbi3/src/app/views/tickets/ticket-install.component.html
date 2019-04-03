@@ -1,0 +1,316 @@
+<form (ngSubmit)="onSubmit(c)" #c="ngForm">
+  <div id="content" #content>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" style="background-color: #FFFFFF">
+        <img src="assets\img\brand\lbi_txt.png" alt="LBI_Designation"/>
+        <H3 style="text-align: center; color: #7AB51C" ><strong>FICHE D'INSTALLATION</strong></H3>
+        <div class="row">
+        <div class="col-md-6">
+          <label class="col-md-3 col-form-label" for="select17" style="color: #7AB51C">Etat</label>
+          <select id="select17" name="select17" class="form-control" ngModel >
+            <option value="En attente">En attente</option>
+            <option value="En cours">En cours</option>
+            <option value="Résolu">Résolu</option>
+            <option value="Annulé">Annulé</option>
+          </select>
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+            <div class="card-header" style="background-color: #009DDE">
+              <div style="text-align: center; color: #FFFFFF"><strong>INFORMATIONS CLIENT</strong></div>
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="select2" style="color: #7AB51C">Donneur d'ordre</label>
+                  <div class="col-md-6">
+                    <select id="select2" name="select2" class="form-control" ngModel >
+                      <option value="Univ Lorraine">Univ Lorraine</option>
+                      <option value="Mairie Nancy">Mairie Nancy</option>
+                      <option value="Conseil régional">Conseil régional</option>
+                      <option value="Dalkia">Dalkia</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="select3" style="color: #7AB51C">Client</label>
+                  <div class="col-md-6">
+                    <select id="select3" name="select3" class="form-control" [(ngModel)]="client" >
+                      <option value="Polytech">Polytech</option>
+                      <option value="Emile Gallé">Emile Gallé</option>
+                      <option value="Dalkia">Dalkia</option>
+                      <option value="Jacques Callot">Jacques Callot</option>
+                    </select>
+                  </div>
+                </div>
+                <!--Généré automatiquement en fct des choix précédents-->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="hfaddr" style="color: #7AB51C">Adresse</label>
+                  <div class="col-md-6">
+                    <input type="text" id="hfaddr" name="hfaddr" class="form-control" placeholder="Adresse..." ngModel >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="villeinput" style="color: #7AB51C">CP-Ville</label>
+                  <div class="col-md-6">
+                    <input type="text" id="villeinput" name="villeinput" class="form-control" placeholder="Ville..." ngModel >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="infoinput" style="color: #7AB51C">Infos supp.</label>
+                  <div class="col-md-6">
+                    <input type="text" id="infoinput" name="infoinput" class="form-control" placeholder="(N° salle, étage..)" ngModel >
+                  </div>
+                </div>
+                <!--A remplir manuellement-->
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="tel5input" style="color: #7AB51C">Téléphone</label>
+                  <div class="col-md-6">
+                    <input type="tel" id="tel5input" name="tel5input" class="form-control" placeholder="Tel..." ngModel >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="tel8input" style="color: #7AB51C">Portable</label>
+                  <div class="col-md-6">
+                    <input type="tel" id="tel8input" name="tel8input" class="form-control" placeholder="Tel...">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="responsinput" style="color: #7AB51C">Interlocuteur</label>
+                  <div class="col-md-6">
+                    <input type="text" id="responsinput" name="responsinput" class="form-control" placeholder="Interlocuteur..." ngModel >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="select4" style="color: #7AB51C">Type de contrat</label>
+                  <div class="col-md-6">
+                    <select id="select4" name="select4" class="form-control" ngModel >
+                      <option value="Régie">Régie</option>
+                      <option value="Sous contrat">Sous contrat</option>
+                      <option value="Sous garantie">Sous garantie</option>
+                      <option value="Payant">Payant</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div>
+            <div class="card-header" style="background-color: #009DDE">
+              <div style="text-align: center; color: #FFFFFF"><strong>INFORMATIONS INTERNE</strong></div>
+            </div>
+            <div class="card-body">
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="technicien1" style="color: #7AB51C">Technicien n°1</label>
+                <div class="col-md-6">
+                  <input class="form-control" id="technicien1" type="text" name="technicien1" ngModel >
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="technicien2" style="color: #7AB51C">Technicien n°2</label>
+                <div class="col-md-6">
+                  <input class="form-control" id="technicien2" type="text" name="technicien2" ngModel >
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="technicien3" style="color: #7AB51C">Technicien n°3</label>
+                <div class="col-md-6">
+                  <input class="form-control" id="technicien3" type="text" name="technicien3" ngModel >
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="technicien4" style="color: #7AB51C">Technicien n°4</label>
+                <div class="col-md-6">
+                  <input class="form-control" id="technicien4" type="text" name="technicien4" ngModel >
+                </div>
+              </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="dateinput"style="color: #7AB51C">Date appel</label>
+                  <div class="col-md-6">
+                    <input class="form-control" id="dateinput" type="date" name="dateinput" [(ngModel)]="date1" placeholder="Date">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="date1input" style="color: #7AB51C">Date inter.</label>
+                  <div class="col-md-6">
+                    <input class="form-control" id="date1input" type="date" name="date1input" ngModel >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="timeinput" style="color: #7AB51C">Heure inter.</label>
+                  <div class="col-md-6">
+                    <input class="form-control" id="timeinput" type="time" name="time1input" placeholder="Date" ngModel >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="select18" style="color: #7AB51C">Type de matériel.</label>
+                  <div class="col-md-6">
+                    <select id="select18" name="select18" class="form-control" [(ngModel)]="radios1">
+                      <option value="TBI">TBI</option>
+                      <option value="Informatique">Informatique</option>
+                      <option value="Imprimante">Imprimante</option>
+                      <option value="Vidéoprojecteur">Vidéoprojecteur</option>
+                      <option value="Ecran interactif">Ecran interactif</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="matri1input" style="color: #7AB51C">Matricule</label>
+                  <div class="col-md-6">
+                    <input type="text" id="matri1input" name="matri1input" class="form-control" placeholder="Matricule...">
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card-header" style="background-color: #009DDE">
+            <div style="text-align: center; color: #FFFFFF"><strong>DESCRIPTION DU MATERIEL A INSTALLER</strong></div>
+          </div>
+          <div class="card-body">
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <textarea id="textarea1input" name="textarea1input" rows="4" class="form-control" placeholder="Veuillez décrire le(s) matériel(s).." ngModel ></textarea>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card-header" style="background-color: #009DDE">
+            <div style="text-align: center; color: #FFFFFF"><strong>DESCRIPTION DES OPERATIONS EFFECTUEES</strong></div>
+          </div>
+          <div class="card-body">
+            <div class="form-group row">
+              <div class="col-md-12">
+                <textarea id="textarea2input" name="textarea2input" rows="4" class="form-control" placeholder="Veuillez décrire les opérations.." ngModel ></textarea>
+              </div>
+            </div>
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th style="background-color: #009DDE; color: #FFFFFF;">Désignation</th>
+                  <th style="background-color: #009DDE; color: #FFFFFF;">Détail</th>
+                  <th style="background-color: #009DDE; color: #FFFFFF;">Quantité</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td style="color: #7AB51C">Prise en charge et forfait déplacement : 20km</td>
+                  <td><input type="text" id="foraitinput" name="forfaitinput" class="form-control" ngModel></td>
+                  <td>
+                    <div class="col-md-3"><input type="text" id="quan1input" name="quan1input" class="form-control"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="color: #7AB51C">Main-d'oeuvre</td>
+                  <td><input type="text" id="oeuvreinput" name="oeuvreinput" class="form-control" ngModel></td>
+                  <td><div class="col-md-3"><input type="text" id="quan2input" name="quan2input" class="form-control"></div></td>
+                </tr>
+                <tr>
+                  <td style="color: #7AB51C">Pièces détachées</td>
+                  <td><textarea id="pieceinput" name="pieceinput" rows="2" class="form-control" ngModel></textarea></td>
+                  <td><div class="col-md-3"><input type="text" id="quan3input" name="quan3input" class="form-control"></div></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div>
+            <div class="card-header" style="background-color: #009DDE">
+              <div style="text-align: center; color: #FFFFFF"><strong>CLIENT</strong></div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="name5input" style="color: #7AB51C">Nom du signataire</label>
+                      <input type="text" class="form-control" id="name5input" name="name5input" ngModel >
+                    </div>
+                  </div>
+                </div><!--/.row-->
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="textarea3input" style="color: #7AB51C">Signature et cachet du client</label>
+                      <signature-pad id="textarea3input" name="textarea3input"></signature-pad>
+                    </div>
+                  </div>
+                </div><!--/.row-->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div>
+            <div class="card-header" style="background-color: #009DDE">
+              <div style="text-align: center; color: #FFFFFF;"><strong>TECHNICIEN</strong></div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="time2input" style="color: #7AB51C">Heure arrivée</label>
+                      <input class="form-control" id="time2input" type="time" name="time2input" ngModel >
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="time3input" style="color: #7AB51C">Heure départ</label>
+                      <input class="form-control" id="time3input" type="time" name="time3input" ngModel >
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label></label>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div><!--/.row-->
+        <div class="col-md-4">
+          <div>
+            <div class="card-header" style="background-color: #009DDE">
+              <div style="text-align: center; color: #FFFFFF" > <strong>REMARQUE OU RAISON DE CLOTURE</strong></div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <textarea id="textarea4input" name="textarea4input" rows="8" class="form-control" ngModel ></textarea>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <input type="file" id="fileinput" name="fileinput" ngModel>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-primary" [disabled]="c.invalid"><i class="fa fa-dot-circle-o"></i> Enregistrer</button>
+        <button type="button" class="btn btn-sm btn-danger" value="cap" (click)="generatePDF()"><i class="fa fa-file-pdf-o"> Export to pdf</i></button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</form>
