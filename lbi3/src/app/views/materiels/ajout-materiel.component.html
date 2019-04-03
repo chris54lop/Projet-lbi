@@ -9,7 +9,7 @@
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="select1" style="color: #7AB51C">Type</label>
             <div class="col-md-9">
-              <select id="select1" name="select1" class="form-control" ngModel required>
+              <select id="select1" name="select1" class="form-control" [(ngModel)]="materiel.select1" >
                 <option value="TBI">TBI</option>
                 <option value="Informatique">Informatique</option>
                 <option value="Imprimante">Imprimante</option>
@@ -21,25 +21,25 @@
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="marqueinput" style="color: #7AB51C">Marque</label>
             <div class="col-md-9">
-              <input type="text" id="marqueinput" name="marqueinput" class="form-control" placeholder="Marque.." ngModel required>
+              <input type="text" id="marqueinput" name="marqueinput" class="form-control" placeholder="Marque.." [(ngModel)]="materiel.marqueinput">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="modeleinput" style="color: #7AB51C">Modèle</label>
             <div class="col-md-9">
-              <input type="text" id="modeleinput" name="modeleinput" class="form-control" placeholder="Modèle.." ngModel required>
+              <input type="text" id="modeleinput" name="modeleinput" class="form-control" placeholder="Modèle.." [(ngModel)]="materiel.modeleinput">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="matriinput" style="color: #7AB51C">Matricule</label>
             <div class="col-md-9">
-              <input type="text" id="matriinput" name="matriinput" class="form-control" placeholder="Matricule.." ngModel required>
+              <input type="text" id="matriinput" name="matriinput" class="form-control" placeholder="Matricule.." [(ngModel)]="materiel.matriinput">
             </div>
           </div>
         <div class="form-group row">
           <label class="col-md-3 col-form-label" for="select21" style="color: #7AB51C">Donneur d'ordre</label>
           <div class="col-md-9">
-            <select id="select21" name="select21" class="form-control" ngModel>
+            <select id="select21" name="select21" class="form-control" [(ngModel)]="materiel.select21">
               <option value="Univ Lorraine">Univ Lorraine</option>
               <option value="Mairie Nancy">Mairie Nancy</option>
               <option value="Conseil régional">Conseil régional</option>
@@ -50,7 +50,7 @@
         <div class="form-group row">
           <label class="col-md-3 col-form-label" for="select22" style="color: #7AB51C">Client</label>
           <div class="col-md-9">
-            <select id="select22" name="select22" class="form-control" ngModel>
+            <select id="select22" name="select22" class="form-control" [(ngModel)]="materiel.select22">
               <option value="Polytech">Polytech</option>
               <option value="Emile Gallé">Emile Gallé</option>
               <option value="Dalkia">Dalkia</option>
@@ -61,13 +61,13 @@
         <div class="form-group row">
           <label class="col-md-3 col-form-label" for="date3"style="color: #7AB51C">Date d'achat</label>
           <div class="col-md-9">
-            <input class="form-control" id="date3" type="date" name="date3" placeholder="Date" ngModel>
+            <input class="form-control" id="date3" type="date" name="date3" placeholder="Date" [(ngModel)]="materiel.date3">
           </div>
         </div>
         <div class="form-group row">
           <label class="col-md-3 col-form-label" for="date4"style="color: #7AB51C">Fin de garantie</label>
           <div class="col-md-9">
-            <input class="form-control" id="date4" type="date" name="date4" placeholder="Date" ngModel>
+            <input class="form-control" id="date4" type="date" name="date4" placeholder="Date" [(ngModel)]="materiel.date4">
           </div>
         </div>
       </div>

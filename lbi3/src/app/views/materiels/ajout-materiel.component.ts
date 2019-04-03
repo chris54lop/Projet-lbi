@@ -12,7 +12,7 @@ export class AjoutMaterielComponent implements OnInit {
   error = '';
   success = '';
 
-  materiel = new Materiel('','','','','','','', '');
+  materiel = new Materiel('', '' , '' , '' , '' , '' , '' ,  '');
 
   constructor(private listmaterielService: ListMaterielService,
               private router: Router) {
@@ -37,7 +37,7 @@ export class AjoutMaterielComponent implements OnInit {
     this.router.navigate(['/materiels/list-materiel']);
 
     this.resetErrors();
-
+    console.log(this.materiel);
     this.listmaterielService.saveMaterielToServer(this.materiel)
       .subscribe(
         (res: Materiel[]) => {
@@ -46,9 +46,6 @@ export class AjoutMaterielComponent implements OnInit {
 
           // Inform the user
           this.success = 'Created successfully';
-
-          // Reset the form
-          d.reset();
         },
         (err) => this.error = err
       );

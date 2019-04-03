@@ -41,7 +41,7 @@ export class ListMaterielService {
     materielObject.select22 = select22;
     materielObject.date4 = date4;
     materielObject.date3 = date3;
-    this.materiels.push(materielObject);
+   // this.materiels.push(materielObject);
   }
 
   saveMaterielToServer(materiel: Materiel): Observable<Materiel[]> {
@@ -51,6 +51,7 @@ export class ListMaterielService {
           return this.materiels;
         }),
         catchError(this.handleError));
+    console.log(this.materiels);
   }
 
   private handleError(error: HttpErrorResponse) {
