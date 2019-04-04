@@ -9,6 +9,7 @@ import { Materiel} from './materiel';
 })
 export class AjoutMaterielComponent implements OnInit {
   materiels: Materiel[];
+  materielJson: Materiel[];
   error = '';
   success = '';
 
@@ -37,17 +38,17 @@ export class AjoutMaterielComponent implements OnInit {
     this.router.navigate(['/materiels/list-materiel']);
 
     this.resetErrors();
-    console.log(this.materiel);
     const materielJson = JSON.stringify(this.materiel);
     console.log(materielJson);
     this.listmaterielService.saveMaterielToServer(materielJson)
       .subscribe(
         (res: Materiel[]) => {
           // Update the list of materiel
-          this.materiels = res;
+          this.materielJson = res;
 
           // Inform the user
           this.success = 'Created successfully';
+          console.log(this.success);
         },
         (err) => this.error = err
       );

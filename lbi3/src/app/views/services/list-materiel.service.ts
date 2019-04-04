@@ -7,7 +7,7 @@ import {catchError, map} from 'rxjs/operators';
 @Injectable ()
 export class ListMaterielService {
 
-  materiels: Materiel[];
+  materiels: Materiel[] = [];
 
   constructor(private httpMateriel: HttpClient) {
   }
@@ -51,7 +51,7 @@ export class ListMaterielService {
           return this.materiels;
         }),
         catchError(this.handleError));
-    console.log(this.materiels);
+
   }
 
   private handleError(error: HttpErrorResponse) {
