@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable, Subject, throwError} from 'rxjs';
-import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Materiel} from '../materiels/materiel';
 import {catchError, map} from 'rxjs/operators';
 
@@ -11,8 +11,6 @@ export class ListMaterielService {
 
   constructor(private httpMateriel: HttpClient) {
   }
-
-
 
 
   materielsSubject = new Subject<any[]>();
@@ -44,12 +42,9 @@ export class ListMaterielService {
    // this.materiels.push(materielObject);
   }
 
-  saveMaterielToServer(materiel: Materiel): Observable<Materiel[]> {
-    return this.httpMateriel.post('https://projet-lbi.firebaseio.com//client.json', {data: materiel})
-      .pipe(map((res) => {
-          this.materiels.push(res['data']);
-          return this.materiels;
-        }),
+  saveMaterielToServer(materiel: Materiel): Observable<Materiel> {
+    return this.httpMateriel.post<Materiel>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajouterMateriel', materiel)
+      .pipe(
         catchError(this.handleError));
 
   }

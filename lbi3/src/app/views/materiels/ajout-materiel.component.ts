@@ -38,13 +38,13 @@ export class AjoutMaterielComponent implements OnInit {
     this.router.navigate(['/materiels/list-materiel']);
 
     this.resetErrors();
-    const materielJson = JSON.stringify(this.materiel);
-    console.log(materielJson);
-    this.listmaterielService.saveMaterielToServer(materielJson)
+    this.materiel = JSON.stringify(this.materiel);
+    console.log(this.materiel);
+    this.listmaterielService.saveMaterielToServer(this.materiel)
       .subscribe(
         (res: Materiel[]) => {
           // Update the list of materiel
-          this.materielJson = res;
+          this.materiel = res;
 
           // Inform the user
           this.success = 'Created successfully';
