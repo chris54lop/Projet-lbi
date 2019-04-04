@@ -1,15 +1,19 @@
 import {Injectable} from '@angular/core';
 import {Observable, Subject, throwError} from 'rxjs';
-import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
 import {Materiel} from '../materiels/materiel';
 import {catchError, map} from 'rxjs/operators';
 
 @Injectable ()
 export class ListMaterielService {
 
+
   materiels: Materiel[] = [];
+  headers: any;
 
   constructor(private httpMateriel: HttpClient) {
+    this.headers = new Headers();
+    this.headers.append('Content-Type', 'application/json');
   }
 
 
@@ -43,7 +47,12 @@ export class ListMaterielService {
   }
 
   saveMaterielToServer(materiel: Materiel): Observable<Materiel> {
-    return this.httpMateriel.post<Materiel>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajouterMateriel', materiel)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.httpMateriel.post<Materiel>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', materiel, httpOptions)
       .pipe(
         catchError(this.handleError));
 
