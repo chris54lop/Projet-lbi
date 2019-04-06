@@ -22,11 +22,11 @@
               </thead>
             </table>
             <app-demande *ngFor="let demande of demandes"
-                         [demandedate1]="demande.date1"
+                         [demandedateappel1]="demande.dateappel1"
                          [demanderecep]="demande.recep"
                          [demandeclient]="demande.client"
-                         [demanderadios]="demande.radios"
-                         [demanderadios1]="demande.radios1"
+                         [demandetypefiche]="demande.typefiche"
+                         [demandetypemat3]="demande.typemat3"
                          [demandedescri]="demande.descri"></app-demande>
           </div> <!--A faire depuis le serveur-->
         </form>

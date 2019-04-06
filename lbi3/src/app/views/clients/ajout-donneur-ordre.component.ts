@@ -2,18 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ListDonneurOrdreService} from '../services/list-donneur-ordre.service';
 import {NgForm} from '@angular/forms';
+import {Donneur} from './donneur';
+
 
 @Component({
   templateUrl: 'ajout-donneur-ordre.component.html'
 })
 export class AjoutDonneurOrdreComponent implements OnInit {
 
+  error = '';
+  success = '';
+
+  donneur = new Donneur('', '' , '' , '' , '' , '' , '' ,  '',
+    '', '' , '' , '' , '' , '' , '' ,  '');
+
+
   constructor(private listdonneurordreService: ListDonneurOrdreService,
               private router: Router) {
   }
   ngOnInit() {
   }
-  onSubmit1(form: NgForm) {
+  /*onSubmit1(form: NgForm) {
     const intitinput = form.value['intitinput'];
     const name2input = form.value['name2input'];
     const prenom2input = form.value['prenom2input'];
@@ -34,4 +43,32 @@ export class AjoutDonneurOrdreComponent implements OnInit {
       name3input, prenom3input, email3input, tel3input, fct3input, name4input, prenom4input, email4input, tel4input, fct4input);
     this.router.navigate(['/clients/list-donneur-ordre']);
   }
+*/
+  onSubmit1() {
+
+    this.router.navigate(['/clients/list-donneur-ordre']);
+
+    this.resetErrors();
+    this.donneur = JSON.stringify(this.donneur);
+    console.log(this.donneur);
+    this.listdonneurordreService.saveDonneurToServer(this.donneur)
+      .subscribe(
+        (res: Donneur[]) => {
+          // Update the list of materiel
+          this.donneur = res;
+
+          // Inform the user
+          this.success = 'Created successfully';
+          console.log(this.success);
+        },
+        (err) => this.error = err
+      );
+  }
+
+  private resetErrors() {
+    this.success = '';
+    this.error   = '';
+  }
+
+
 }

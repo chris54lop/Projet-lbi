@@ -7,6 +7,7 @@ import {ListUtilisateurComponent} from './list-utilisateur.component';
 import {UtilisateurRoutingModule} from './utilisateur-routing.module';
 import {ExcelService} from '../services/excel.service';
 import {MonCompteComponent} from './mon-compte.component';
+import {ListUtilisateurService} from '../services/list-utilisateur.service';
 
 
 
@@ -23,7 +24,8 @@ import {MonCompteComponent} from './mon-compte.component';
 
   ],
   providers: [
-  ExcelService
+  ExcelService,
+    ListUtilisateurService
   ]
 })
 export class UtilisateurModule { }

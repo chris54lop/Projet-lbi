@@ -9,7 +9,6 @@ import { Materiel} from './materiel';
 })
 export class AjoutMaterielComponent implements OnInit {
   materiels: Materiel[];
-  materielJson: Materiel[];
   error = '';
   success = '';
 
@@ -21,15 +20,15 @@ export class AjoutMaterielComponent implements OnInit {
   ngOnInit() {
   }
   onSubmit2(form: NgForm) {
-    const select1 = form.value['select1'];
+    const typemat1 = form.value['typemat1'];
     const marqueinput = form.value['marqueinput'];
     const modeleinput = form.value['modeleinput'];
     const matriinput = form.value['matriinput'];
-    const select21 = form.value['select21'];
-    const select22 = form.value['select22'];
-    const date4 = form.value['date4'];
-    const date3 = form.value['date3'];
-    this.listmaterielService.addMateriel(select1, marqueinput, modeleinput, matriinput, select21, select22, date4, date3);
+    const donneur2 = form.value['donneur2'];
+    const client1 = form.value['client1'];
+    const dategarantie1 = form.value['dategarantie1'];
+    const dateachat1 = form.value['dateachat1'];
+    this.listmaterielService.addMateriel(typemat1, marqueinput, modeleinput, matriinput, donneur2, client1, dategarantie1, dateachat1);
     this.router.navigate(['/materiels/list-materiel']);
 
   }

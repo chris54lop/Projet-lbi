@@ -9,19 +9,19 @@
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="nomt" style="color: #7AB51C">Nom</label>
             <div class="col-md-9">
-              <input type="text" id="nomt" name="nomt" class="form-control" placeholder="Nom.." ngModel required>
+              <input type="text" id="nomt" name="nomt" class="form-control" placeholder="Nom.." [(ngModel)]="technicien.nomt">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="telx" style="color: #7AB51C">Téléphone</label>
             <div class="col-md-9">
-              <input type="tel" id="telx" name="telx" class="form-control" placeholder="Tel.." ngModel>
+              <input type="tel" id="telx" name="telx" class="form-control" placeholder="Tel.." [(ngModel)]="technicien.telx">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="fctx" style="color: #7AB51C">Fonction</label>
             <div class="col-md-9">
-              <input type="text" id="fctx" name="fctx" class="form-control" placeholder="Fonction.." ngModel>
+              <input type="text" id="fctx" name="fctx" class="form-control" placeholder="Fonction.." [(ngModel)]="technicien.fctx">
             </div>
           </div>
         </div>

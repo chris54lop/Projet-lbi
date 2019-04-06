@@ -1,11 +1,18 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
+import {Client} from '../clients/client';
 
 
 @Injectable ()
 export class ListClientService {
 
-  constructor() {
+  headers: any;
+
+  constructor(private httpClient: HttpClient) {
+    this.headers = new Headers();
+    this.headers.append('Content-Type', 'application/json');
   }
 
   private clients = [];
@@ -17,15 +24,15 @@ export class ListClientService {
     this.clientsSubject.next(this.clients.slice());
   }
 
-  addClient( hfetabl: string, hfaddr: string, hfville: string, select7: string, nameinput: string, prenominput: string,
+  addClient( etabl: string, addr: string, ville: string, donneur1: string, nameinput: string, prenominput: string,
              emailinput: string, telinput: string, fctinput: string, name1input: string, prenom1input: string, email1input: string,
              tel1input: string, fct1input: string) {
     const clientObject = {
 
-      hfetabl: '',
-      hfaddr: '',
-      hfville: '',
-      select7: '',
+      etabl: '',
+      addr: '',
+      ville: '',
+      donneur1: '',
       nameinput: '',
       prenominput: '',
       emailinput: '',
@@ -38,10 +45,10 @@ export class ListClientService {
       fct1input: '',
 
     };
-    clientObject.hfetabl = hfetabl;
-    clientObject.hfaddr = hfaddr;
-    clientObject.hfville = hfville;
-    clientObject.select7 = select7;
+    clientObject.etabl = etabl;
+    clientObject.addr = addr;
+    clientObject.ville = ville;
+    clientObject.donneur1 = donneur1;
     clientObject.nameinput = nameinput;
     clientObject.prenominput = prenominput;
     clientObject.emailinput = emailinput;
@@ -55,17 +62,23 @@ export class ListClientService {
     this.clients.push(clientObject);
   }
 
-  /*saveClientToServer() {
-    this.httpClient
-      .put('https://projet-lbi.firebaseio.com//client.json', this.clients)
-      .subscribe(
-        () => {
-          console.log('Enregistrement terminé !');
-        },
-        (error) => {
-          console.log('Erreur ! : ' + error)
-        }
-      );
-  }*/
+  saveClientToServer(client: Client): Observable<Client> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.httpClient.post<Client>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', client, httpOptions)
+      .pipe(
+        catchError(this.handleError));
+
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.log(error);
+
+    // return an observable with a user friendly message
+    return throwError('Error! something went wrong.');
+  }
 }
 

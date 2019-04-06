@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Observable, Subject, throwError} from 'rxjs';
-import {HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Materiel} from '../materiels/materiel';
-import {catchError, map} from 'rxjs/operators';
+import {Type} from '../materiels/type';
+import {catchError} from 'rxjs/operators';
 
 @Injectable ()
 export class ListMaterielService {
@@ -23,26 +24,26 @@ export class ListMaterielService {
     this.materielsSubject.next(this.materiels.slice());
   }
 
-  addMateriel( select1: string, marqueinput: string, modeleinput: string, matriinput: string, select21: string, select22: string, date4: string, date3: string) {
+  addMateriel( typemat1: string, marqueinput: string, modeleinput: string, matriinput: string, donneur2: string, client1: string, dategarantie1: string, dateachat1: string) {
     const materielObject = {
-      select1: '',
+      typemat1: '',
       marqueinput: '',
       modeleinput: '',
       matriinput: '',
-      select21: '',
-      select22: '',
-      date4: '',
-      date3: '',
+      donneur2: '',
+      client1: '',
+      dategarantie1: '',
+      dateachat1: '',
 
     };
-    materielObject.select1 = select1;
+    materielObject.typemat1 = typemat1;
     materielObject.marqueinput = marqueinput;
     materielObject.modeleinput = modeleinput;
     materielObject.matriinput = matriinput;
-    materielObject.select21 = select21;
-    materielObject.select22 = select22;
-    materielObject.date4 = date4;
-    materielObject.date3 = date3;
+    materielObject.donneur2 = donneur2;
+    materielObject.client1 = client1;
+    materielObject.dategarantie1 = dategarantie1;
+    materielObject.dateachat1 = dateachat1;
    // this.materiels.push(materielObject);
   }
 
@@ -53,6 +54,17 @@ export class ListMaterielService {
       })
     };
     return this.httpMateriel.post<Materiel>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', materiel, httpOptions)
+      .pipe(
+        catchError(this.handleError));
+
+  }
+  saveTypeToServer(type: Type): Observable<Type> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.httpMateriel.post<Type>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', type, httpOptions)
       .pipe(
         catchError(this.handleError));
 

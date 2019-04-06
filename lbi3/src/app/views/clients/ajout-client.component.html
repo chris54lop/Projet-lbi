@@ -8,27 +8,27 @@
       <div class="card-body">
 
           <div class="form-group row">
-            <label class="col-md-3 col-form-label" for="hfetabl" style="color: #7AB51C">Etablissement</label>
+            <label class="col-md-3 col-form-label" for="etabl" style="color: #7AB51C">Etablissement</label>
             <div class="col-md-6">
-              <input type="text" id="hfetabl" name="hfetabl" class="form-control" placeholder="Etablissement..." ngModel required>
+              <input type="text" id="etabl" name="etabl" class="form-control" placeholder="Etablissement..." [(ngModel)]="client.etabl">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-md-3 col-form-label" for="hfaddr" style="color: #7AB51C">Adresse</label>
+            <label class="col-md-3 col-form-label" for="addr" style="color: #7AB51C">Adresse</label>
             <div class="col-md-6">
-              <input type="text" id="hfaddr" name="hfaddr" class="form-control" placeholder="Adresse..." ngModel required>
+              <input type="text" id="addr" name="addr" class="form-control" placeholder="Adresse..." [(ngModel)]="client.addr">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-md-3 col-form-label" for="hfville" style="color: #7AB51C">Ville</label>
+            <label class="col-md-3 col-form-label" for="ville" style="color: #7AB51C">Ville</label>
             <div class="col-md-6">
-              <input type="text" id="hfville" name="hfville" class="form-control" placeholder="Ville..." ngModel required>
+              <input type="text" id="ville" name="ville" class="form-control" placeholder="Ville..." [(ngModel)]="client.ville">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-md-3 col-form-label" for="select7" style="color: #7AB51C">Donneur d'ordre</label>
+            <label class="col-md-3 col-form-label" for="donneur1" style="color: #7AB51C">Donneur d'ordre</label>
             <div class="col-md-6">
-              <select id="select7" name="select7" class="form-control" ngModel required>
+              <select id="donneur1" name="donneur1" class="form-control" [(ngModel)]="client.donneur1">
                 <option value="Univ Lorraine">Univ Lorraine</option>
                 <option value="Mairie Nancy">Mairie Nancy</option>
                 <option value="Conseil régional">Conseil régional</option>
@@ -52,31 +52,31 @@
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="nameinput" style="color: #7AB51C">Nom</label>
             <div class="col-md-9">
-              <input type="text" id="nameinput" name="nameinput" class="form-control" placeholder="Nom.." ngModel required>
+              <input type="text" id="nameinput" name="nameinput" class="form-control" placeholder="Nom.." [(ngModel)]="client.nameinput">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="prenominput" style="color: #7AB51C">Prénom</label>
             <div class="col-md-9">
-              <input type="text" id="prenominput" name="prenominput" class="form-control" placeholder="Prénom.." ngModel required>
+              <input type="text" id="prenominput" name="prenominput" class="form-control" placeholder="Prénom.." [(ngModel)]="client.prenominput">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="emailinput" style="color: #7AB51C">Mail</label>
             <div class="col-md-9">
-              <input type="text" id="emailinput" name="emailinput" class="form-control" placeholder="Mail.." ngModel required>
+              <input type="text" id="emailinput" name="emailinput" class="form-control" placeholder="Mail.." [(ngModel)]="client.emailinput">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="telinput" style="color: #7AB51C">Téléphone</label>
             <div class="col-md-9">
-              <input type="text" id="telinput" name="telinput" class="form-control" PATTERN="[0-9]{10}" placeholder="Tel.." ngModel required>
+              <input type="text" id="telinput" name="telinput" class="form-control" PATTERN="[0-9]{10}" placeholder="Tel.." [(ngModel)]="client.telinput">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="fctinput" style="color: #7AB51C">Fonction</label>
             <div class="col-md-9">
-              <input type="text" id="fctinput" name="fctinput" class="form-control" placeholder="Fonction.." ngModel required>
+              <input type="text" id="fctinput" name="fctinput" class="form-control" placeholder="Fonction.." [(ngModel)]="client.fctinput">
             </div>
           </div>
       </div>
@@ -101,31 +101,31 @@
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="name1input" style="color: #7AB51C">Nom</label>
             <div class="col-md-9">
-              <input type="text" id="name1input" name="name1input" class="form-control" placeholder="Nom.." ngModel>
+              <input type="text" id="name1input" name="name1input" class="form-control" placeholder="Nom.." [(ngModel)]="client.name1input">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="prenom1input" style="color: #7AB51C">Prénom</label>
             <div class="col-md-9">
-              <input type="text" id="prenom1input" name="prenom1input" class="form-control" placeholder="Prénom.." ngModel>
+              <input type="text" id="prenom1input" name="prenom1input" class="form-control" placeholder="Prénom.." [(ngModel)]="client.prenom1input">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="email1input" style="color: #7AB51C">Mail</label>
             <div class="col-md-9">
-              <input type="text" id="email1input" name="email1input" class="form-control" placeholder="Mail.." ngModel>
+              <input type="text" id="email1input" name="email1input" class="form-control" placeholder="Mail.." [(ngModel)]="client.email1input">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="tel1input" style="color: #7AB51C">Téléphone</label>
             <div class="col-md-9">
-              <input type="text" id="tel1input" name="tel1input" class="form-control" placeholder="Tel.." ngModel>
+              <input type="text" id="tel1input" name="tel1input" class="form-control" placeholder="Tel.." [(ngModel)]="client.tel1input">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="fct1input" style="color: #7AB51C">Fonction</label>
             <div class="col-md-9">
-              <input type="text" id="fct1input" name="fct1input" class="form-control" placeholder="Fonction.." ngModel>
+              <input type="text" id="fct1input" name="fct1input" class="form-control" placeholder="Fonction.." [(ngModel)]="client.fct1input">
             </div>
           </div>
       </div>

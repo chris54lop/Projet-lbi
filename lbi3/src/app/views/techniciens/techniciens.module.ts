@@ -5,6 +5,8 @@ import {ListTechnicienComponent} from './list-technicien.component';
 import {TechniciensRoutingModule} from './techniciens-routing';
 import {AjoutTechnicienComponent} from './ajout-technicien.component';
 import {FormsModule} from '@angular/forms';
+import {ListMaterielService} from '../services/list-materiel.service';
+import {ListTechnicienService} from '../services/list-technicien.service';
 
 
 
@@ -17,6 +19,10 @@ import {FormsModule} from '@angular/forms';
   declarations: [
     ListTechnicienComponent,
     AjoutTechnicienComponent
+  ],
+  providers: [
+    ListTechnicienService,
+
   ]
 })
 export class TechniciensModule { }

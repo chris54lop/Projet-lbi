@@ -1,11 +1,11 @@
 export class Materiel {
   constructor(
-    select1: string,
+    typemat1: string,
     marqueinput: string,
     modeleinput: string,
     matriinput: string,
-    select21: string,
-    select22: string,
-    date4: string,
-    date3: string) {}
+    donneur2: string,
+    client1: string,
+    dategarantie1: string,
+    dateachat1: string) {}
 }

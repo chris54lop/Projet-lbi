@@ -1,41 +1,68 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
+import {Demande} from '../tickets/demande';
 
 
 @Injectable ()
 export class ListDemandeService {
 
-  constructor() {
+  demandes: Demande[] = [];
+  headers: any;
+
+  constructor(private httpDemande: HttpClient) {
+    this.headers = new Headers();
+    this.headers.append('Content-Type', 'application/json');
   }
   demandesSubject = new Subject<any[]>();
 
 
-  private demandes = [];
 
   emitDemandeSubject() {
     this.demandesSubject.next(this.demandes.slice());
   }
 
-  addDemande( radios: string, date1: string, recep: string, client: string, radios1: string,
+  addDemande( typefiche: string, dateappel1: string, recep: string, client: string, typemat3: string,
               descri: string) {
     const demandeObject = {
-      radios: '',
-      date1: '',
+      typefiche: '',
+      dateappel1: '',
       recep: '',
       client: '',
-      radios1: '',
+      typemat3: '',
       descri: '',
 
     };
-    demandeObject.radios = radios;
-    demandeObject.date1 = date1;
+    demandeObject.typefiche = typefiche;
+    demandeObject.dateappel1 = dateappel1;
     demandeObject.recep = recep;
     demandeObject.client = client;
-    demandeObject.radios1 = radios1;
+    demandeObject.typemat3 = typemat3;
     demandeObject.descri = descri;
     this.demandes.push(demandeObject);
 
 
   }
+
+  saveDemandeToServer(demande: Demande): Observable<Demande> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.httpDemande.post<Demande>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', demande, httpOptions)
+      .pipe(
+        catchError(this.handleError));
+
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.log(error);
+
+    // return an observable with a user friendly message
+    return throwError('Error! something went wrong.');
+  }
+
 
 }

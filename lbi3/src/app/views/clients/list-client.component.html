@@ -20,9 +20,9 @@
               </thead>
             </table>
             <app-client *ngFor="let client of clients"
-                         [clienthfetabl]="client.hfetabl"
-                         [clienthfaddr]="client.hfaddr"
-                         [clienthfville]="client.hfville"
+                         [clientetabl]="client.etabl"
+                         [clientaddr]="client.addr"
+                         [clientville]="client.ville"
                          [clientnameinput]="client.nameinput"></app-client>
           </div>
         </form>

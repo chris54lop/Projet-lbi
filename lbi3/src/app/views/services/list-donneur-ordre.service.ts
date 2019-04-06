@@ -1,10 +1,17 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
+import {Donneur} from '../clients/donneur';
 
 @Injectable ()
 export class ListDonneurOrdreService {
 
-  constructor() {
+  headers: any;
+
+  constructor(private httpDonneur: HttpClient) {
+    this.headers = new Headers();
+    this.headers.append('Content-Type', 'application/json');
   }
 
   private donneurs = [];
@@ -20,7 +27,6 @@ export class ListDonneurOrdreService {
              prenom3input: string, email3input: string, tel3input: string, fct3input: string, name4input: string,
              prenom4input: string, email4input: string, tel4input: string, fct4input: string) {
     const donneurObject = {
-      id: 0,
       intitinput: '',
       name2input: '',
       prenom2input: '',
@@ -56,4 +62,24 @@ export class ListDonneurOrdreService {
     donneurObject.fct4input = fct4input;
     this.donneurs.push(donneurObject);
   }
+
+  saveDonneurToServer(donneur: Donneur): Observable<Donneur> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.httpDonneur.post<Donneur>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', donneur, httpOptions)
+      .pipe(
+        catchError(this.handleError));
+
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.log(error);
+
+    // return an observable with a user friendly message
+    return throwError('Error! something went wrong.');
+  }
+
 }

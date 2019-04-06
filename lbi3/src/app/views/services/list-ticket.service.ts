@@ -1,12 +1,21 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
+import {TicketInstall} from '../tickets/ticket-install';
+import {TicketInterv} from '../tickets/ticket-interv';
 
 @Injectable ()
 export class ListTicketService {
 
+  ticketinstalls: TicketInstall[] = [];
+  headers: any;
+
   private ticketsinterv; ticketsinstall;
 
-  constructor() {
+  constructor(private httpTicket: HttpClient) {
+    this.headers = new Headers();
+    this.headers.append('Content-Type', 'application/json');
   }
 
   ticketsSubject = new Subject<any[]>();
@@ -18,33 +27,33 @@ export class ListTicketService {
     this.ticketsSubject.next(this.tickets.slice());
   }
 
-  addTicketinstall( select17: string, select2: string, select3: string, hfaddr: string, villeinput: string, infoinput: string,
-                    tel5input: string, tel8input: string, responsinput: string, select4: string, technicien1: string, technicien2: string, technicien3: string, technicien4: string, dateinput: string,
-                    timeinput: string, date1input: string, select18: string, matri1input: string, textarea1input: string, textarea2input: string,
-                    forfaitinput: string, quan1input: string, oeuvreinput: string, quan2input: string, pieceinput: string,  quan3input: string, name5input: string, textarea3input: string, time2input: string,
-                    time3input: string, textarea4input: string, fileinput: string, fiche: string) {
+  addTicketinstall( etat1: string, donneur3: string, client2: string, hfaddr: string, villeinput: string, infoinput: string,
+                    telfixe: string, telportable: string, responsinput: string, typecontrat: string, technicien1: string, technicien2: string, technicien3: string, technicien4: string, dateappel2: string,
+                    heureinterv: string, dateinterv: string, typemat4: string, matri1input: string, descrimat: string, descritravail: string,
+                    forfaitinput: string, quan1input: string, oeuvreinput: string, quan2input: string, pieceinput: string,  quan3input: string, name5input: string, textarea3input: string, harrive: string,
+                    hdep: string, rq: string, fileinput: string, fiche: string) {
     const ticketinstallObject = {
-      select17: '',
-      select2: '',
-      select3: '',
+      etat1: '',
+      donneur3: '',
+      client2: '',
       hfaddr: '',
       villeinput: '',
       infoinput: '',
-      tel5input: '',
-      tel8input: '',
+      telfixe: '',
+      telportable: '',
       responsinput: '',
-      select4: '',
+      typecontrat: '',
       technicien1: '',
       technicien2: '',
       technicien3: '',
       technicien4: '',
-      dateinput: '',
-      timeinput: '',
-      date1input: '',
-      select18: '',
+      dateappel2: '',
+      heureinterv: '',
+      dateinterv: '',
+      typemat4: '',
       matri1input: '',
-      textarea1input: '',
-      textarea2input: '',
+      descrimat: '',
+      descritravail: '',
       forfaitinput: '',
       quan1input: '',
       oeuvreinput: '',
@@ -53,33 +62,33 @@ export class ListTicketService {
       quan3input: '',
       name5input: '',
       textarea3input: '',
-      time2input: '',
-      time3input: '',
-      textarea4input: '',
+      harrive: '',
+      hdep: '',
+      rq: '',
       fileinput: '',
       fiche: '',
     };
-    ticketinstallObject.select17 = select17;
-    ticketinstallObject.select2 = select2;
-    ticketinstallObject.select3 = select3;
+    ticketinstallObject.etat1 = etat1;
+    ticketinstallObject.donneur3 = donneur3;
+    ticketinstallObject.client2 = client2;
     ticketinstallObject.hfaddr = hfaddr;
     ticketinstallObject.villeinput = villeinput;
     ticketinstallObject.infoinput = infoinput;
-    ticketinstallObject.tel5input = tel5input;
-    ticketinstallObject.tel8input = tel8input;
+    ticketinstallObject.telfixe = telfixe;
+    ticketinstallObject.telportable = telportable;
     ticketinstallObject.responsinput = responsinput;
-    ticketinstallObject.select4 = select4;
+    ticketinstallObject.typecontrat = typecontrat;
     ticketinstallObject.technicien1 = technicien1;
     ticketinstallObject.technicien2 = technicien2;
     ticketinstallObject.technicien3 = technicien3;
     ticketinstallObject.technicien4 = technicien4;
-    ticketinstallObject.dateinput = dateinput;
-    ticketinstallObject.timeinput = timeinput;
-    ticketinstallObject.date1input = date1input;
-    ticketinstallObject.select18 = select18;
+    ticketinstallObject.dateappel2 = dateappel2;
+    ticketinstallObject.heureinterv = heureinterv;
+    ticketinstallObject.dateinterv = dateinterv;
+    ticketinstallObject.typemat4 = typemat4;
     ticketinstallObject.matri1input = matri1input;
-    ticketinstallObject.textarea1input = textarea1input;
-    ticketinstallObject.textarea2input = textarea2input;
+    ticketinstallObject.descrimat = descrimat;
+    ticketinstallObject.descritravail = descritravail;
     ticketinstallObject.forfaitinput = forfaitinput;
     ticketinstallObject.quan1input = quan1input;
     ticketinstallObject.oeuvreinput = oeuvreinput;
@@ -88,9 +97,9 @@ export class ListTicketService {
     ticketinstallObject.quan3input = quan3input;
     ticketinstallObject.name5input = name5input;
     ticketinstallObject.textarea3input = textarea3input;
-    ticketinstallObject.time2input = time2input;
-    ticketinstallObject.time3input = time3input;
-    ticketinstallObject.textarea4input = textarea4input;
+    ticketinstallObject.harrive = harrive;
+    ticketinstallObject.hdep = hdep;
+    ticketinstallObject.rq = rq;
     ticketinstallObject.fileinput = fileinput;
     ticketinstallObject.fiche = fiche;
     this.tickets.push(ticketinstallObject);
@@ -98,33 +107,33 @@ export class ListTicketService {
 
   }
 
-  addTicketinterv( select19: string, select8: string, select9: string, addr1input: string, ville1input: string, info1input: string,
-                    tel6input: string, tel7input: string, respons1input: string, select20: string, technicien5: string, technicien6: string, technicien7: string, technicien8: string, date2input: string,
-                    time5input: string, date3input: string, select10: string, matri2input: string, textarea5input: string, textarea6input: string,
-                    forfait1input: string, quan4input: string, oeuvre1input: string, quan5input: string, piece1input: string, quan6input: string, name6input: string, textarea7input: string, time6input: string,
-                    time7input: string, textarea8input: string, fileinput1: string, fiche: string) {
+  addTicketinterv( etat2: string, donneur4: string, client4: string, addr1input: string, ville1input: string, info1input: string,
+                    telfixe1: string, telportable1: string, respons1input: string, typecontrat1: string, technicien5: string, technicien6: string, technicien7: string, technicien8: string, dateappel3: string,
+                    hinter: string, dinterv: string, typemat5: string, matri2input: string, descripanne: string, descritravail1: string,
+                    forfait1input: string, quan4input: string, oeuvre1input: string, quan5input: string, piece1input: string, quan6input: string, name6input: string, textarea7input: string, harrive1: string,
+                    hdep1: string, rq1: string, fileinput1: string, fiche: string) {
     const ticketintervObject = {
-      select19: '',
-      select8: '',
-      select9: '',
+      etat2: '',
+      donneur4: '',
+      client4: '',
       addr1input: '',
       ville1input: '',
       info1input: '',
-      tel6input: '',
-      tel7input: '',
+      telfixe1: '',
+      telportable1: '',
       respons1input: '',
-      select20: '',
+      typecontrat1: '',
       technicien5: '',
       technicien6: '',
       technicien7: '',
       technicien8: '',
-      date2input: '',
-      time5input: '',
-      date3input: '',
-      select10: '',
+      dateappel3: '',
+      hinter: '',
+      dinterv: '',
+      typemat5: '',
       matri2input: '',
-      textarea5input: '',
-      textarea6input: '',
+      descripanne: '',
+      descritravail1: '',
       forfait1input: '',
       quan4input: '',
       oeuvre1input: '',
@@ -133,33 +142,33 @@ export class ListTicketService {
       quan6input: '',
       name6input: '',
       textarea7input: '',
-      time6input: '',
-      time7input: '',
-      textarea8input: '',
+      harrive1: '',
+      hdep1: '',
+      rq1: '',
       fileinput1: '',
       fiche: '',
     };
-    ticketintervObject.select19 = select19;
-    ticketintervObject.select8 = select8;
-    ticketintervObject.select9 = select9;
+    ticketintervObject.etat2 = etat2;
+    ticketintervObject.donneur4 = donneur4;
+    ticketintervObject.client4 = client4;
     ticketintervObject.addr1input = addr1input;
     ticketintervObject.ville1input = ville1input;
     ticketintervObject.info1input = info1input;
-    ticketintervObject.tel7input = tel7input;
-    ticketintervObject.tel6input = tel6input;
+    ticketintervObject.telfixe1 = telfixe1;
+    ticketintervObject.telportable1 = telportable1;
     ticketintervObject.respons1input = respons1input;
-    ticketintervObject.select20 = select20;
+    ticketintervObject.typecontrat1 = typecontrat1;
     ticketintervObject.technicien5 = technicien5;
     ticketintervObject.technicien6 = technicien6;
     ticketintervObject.technicien7 = technicien7;
     ticketintervObject.technicien8 = technicien8;
-    ticketintervObject.date2input = date2input;
-    ticketintervObject.time5input = time5input;
-    ticketintervObject.date3input = date3input;
-    ticketintervObject.select10 = select10;
+    ticketintervObject.dateappel3 = dateappel3;
+    ticketintervObject.hinter = hinter;
+    ticketintervObject.dinterv = dinterv;
+    ticketintervObject.typemat5 = typemat5;
     ticketintervObject.matri2input = matri2input;
-    ticketintervObject.textarea5input = textarea5input;
-    ticketintervObject.textarea6input = textarea6input;
+    ticketintervObject.descripanne = descripanne;
+    ticketintervObject.descritravail1 = descritravail1;
     ticketintervObject.forfait1input = forfait1input;
     ticketintervObject.quan4input = quan4input;
     ticketintervObject.oeuvre1input = oeuvre1input;
@@ -168,12 +177,47 @@ export class ListTicketService {
     ticketintervObject.quan6input = quan6input;
     ticketintervObject.name6input = name6input;
     ticketintervObject.textarea7input = textarea7input;
-    ticketintervObject.time6input = time6input;
-    ticketintervObject.time7input = time7input;
-    ticketintervObject.textarea8input = textarea8input;
+    ticketintervObject.harrive1 = harrive1;
+    ticketintervObject.hdep1 = hdep1;
+    ticketintervObject.rq1 = rq1;
     ticketintervObject.fileinput1 = fileinput1;
     ticketintervObject.fiche = fiche;
     this.tickets.push(ticketintervObject);
 
   }
+
+  saveTicketInstallToServer(ticketinstall: TicketInstall): Observable<TicketInstall> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.httpTicket.post<TicketInstall>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', ticketinstall, httpOptions)
+      .pipe(
+        catchError(this.handleError));
+
+  }
+
+  saveTicketIntervToServer(ticketinterv: TicketInterv): Observable<TicketInterv> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.httpTicket.post<TicketInterv>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', ticketinterv, httpOptions)
+      .pipe(
+        catchError(this.handleError));
+
+  }
+
+
+  private handleError(error: HttpErrorResponse) {
+    console.log(error);
+
+    // return an observable with a user friendly message
+    return throwError('Error! something went wrong.');
+  }
+
+
+
 }

@@ -12,7 +12,7 @@ export class ListUtilisateurComponent {
   constructor( ) { }
   @Input() listutilisateurname7: string;
   @Input() listutilisateurprenom5: string;
-  @Input() listutilisateurselect14: string;
+  @Input() listutilisateurniv: string;
   @Input() listutilisateurpassword: string;
 }
 

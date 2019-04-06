@@ -9,10 +9,10 @@ import {Router} from '@angular/router';
 })
 export class ClientComponent {
 
-  @Input() clienthfetabl: string;
-  @Input() clienthfaddr: string;
-  @Input() clienthfville: string;
-  @Input() clientselect7: string;
+  @Input() clientetabl: string;
+  @Input() clientaddr: string;
+  @Input() clientville: string;
+  @Input() clientdonneur1: string;
   @Input() clientnameinput: string;
   @Input() clientprenominput: string;
   @Input() clientemailinput: string;

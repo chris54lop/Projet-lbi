@@ -9,11 +9,11 @@ import {Router} from '@angular/router';
 })
 export class DemandeComponent {
 
-  @Input() demanderadios: string;
-  @Input() demandedate1: string;
+  @Input() demandetypefiche: string;
+  @Input() demandedateappel1: string;
   @Input() demanderecep: string;
   @Input() demandeclient: string;
-  @Input() demanderadios1: string;
+  @Input() demandetypemat3: string;
   @Input() demandedescri: string;
 
 
@@ -21,13 +21,13 @@ export class DemandeComponent {
   constructor(private router: Router) { }
 
   onCreer() {
-    if (this.demanderadios === 'Installation') {
+    if (this.demandetypefiche === 'Installation') {
       this.router.navigate(['/tickets/ticket-install'],
-        { queryParams : {'demandeclient' : this.demandeclient, 'demandedate1' : this.demandedate1, 'demanderadios1' : this.demanderadios1}});
+        { queryParams : {'demandeclient' : this.demandeclient, 'demandedateappel1' : this.demandedateappel1, 'demandetypemat3' : this.demandetypemat3}});
     } else {
       this.router.navigate(['/tickets/ticket-interv'],
-        { queryParams : {'demandeclient' : this.demandeclient, 'demanderadios' : this.demanderadios , 'demandedate1' : this.demandedate1,
-          'demanderadios1' : this.demanderadios1}});
+        { queryParams : {'demandeclient' : this.demandeclient, 'demandetypefiche' : this.demandetypefiche , 'demandedateappel1' : this.demandedateappel1,
+          'demandetypemat3' : this.demandetypemat3}});
     }
   }
 }
