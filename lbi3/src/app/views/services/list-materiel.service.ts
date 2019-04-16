@@ -70,6 +70,17 @@ export class ListMaterielService {
 
   }
 
+  getMaterielFromServer(): Observable<Materiel> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.httpMateriel.get<Materiel>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', httpOptions)
+      .pipe(
+        catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
       console.log(error);
 

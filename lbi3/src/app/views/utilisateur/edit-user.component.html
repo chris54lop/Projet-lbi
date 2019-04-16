@@ -1,0 +1,58 @@
+<form (ngSubmit)="onSubmit(g)" #g="ngForm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header" style="background-color: #009DDE">
+          <div style="text-align: center; color: #FFFFFF"><strong>MODIFIER UTILISATEUR</strong></div>
+        </div>
+        <div class="card-body">
+
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="name7" style="color: #7AB51C">Nom</label>
+            <div class="col-md-6">
+              <input type="text" id="name7" name="name7" class="form-control" placeholder="Nom..." [(ngModel)]="utilisateur.name7">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="prenom5" style="color: #7AB51C">Prénom</label>
+            <div class="col-md-6">
+              <input type="text" id="prenom5" name="prenom5" class="form-control" placeholder="Prénom..." [(ngModel)]="utilisateur.prenom5">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="niv" style="color: #7AB51C">Niveau d'accées</label>
+            <div class="col-md-6">
+              <select id="niv" name="niv" class="form-control" [(ngModel)]="utilisateur.niv">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="login" style="color: #7AB51C">Login</label>
+            <div class="col-md-6">
+              <input type="text" id="login" name="login" class="form-control" placeholder="Login..." [(ngModel)]="utilisateur.login">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="password" style="color: #7AB51C">Mot de passe</label>
+            <div class="col-md-6">
+              <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe..." [(ngModel)]="utilisateur.password">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div>
+        <div>
+          <button type="submit" class="btn btn-sm btn-primary" (click)="updateUtilisateur(name7, prenom5, niv, login, password, item.id)" ><i class="fa fa-dot-circle-o"></i> Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+

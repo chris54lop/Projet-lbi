@@ -8,6 +8,7 @@ import {UtilisateurRoutingModule} from './utilisateur-routing.module';
 import {ExcelService} from '../services/excel.service';
 import {MonCompteComponent} from './mon-compte.component';
 import {ListUtilisateurService} from '../services/list-utilisateur.service';
+import {EditUserComponent} from './edit-user.component';
 
 
 
@@ -20,7 +21,8 @@ import {ListUtilisateurService} from '../services/list-utilisateur.service';
   declarations: [
     AjoutUtilisateurComponent,
     ListUtilisateurComponent,
-    MonCompteComponent
+    MonCompteComponent,
+    EditUserComponent
 
   ],
   providers: [

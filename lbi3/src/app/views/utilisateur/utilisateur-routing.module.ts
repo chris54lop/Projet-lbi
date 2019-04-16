@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {AjoutUtilisateurComponent} from './ajout-utilisateur.component';
 import {ListUtilisateurComponent} from './list-utilisateur.component';
 import {MonCompteComponent} from './mon-compte.component';
+import {EditUserComponent} from './edit-user.component';
 
 
 
@@ -26,6 +27,13 @@ const routes: Routes = [
         component: ListUtilisateurComponent,
         data: {
           title: 'Liste d\'utilisateurs'
+        }
+      },
+      {
+        path: 'edit-user',
+        component: EditUserComponent,
+        data: {
+          title: 'Modifier utilisateur'
         }
       },
       {
