@@ -48,7 +48,7 @@ export class ListUtilisateurService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpUtilisateur.get<Utilisateur>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', httpOptions)
+    return this.httpUtilisateur.get<Utilisateur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getUser', httpOptions)
       .pipe(
         catchError(this.handleError));
   }

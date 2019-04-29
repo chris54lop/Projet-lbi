@@ -19,7 +19,7 @@ export class ListTechnicienService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpTechnicien.post<Technicien>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', technicien, httpOptions)
+    return this.httpTechnicien.post<Technicien>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajouterTech', technicien, httpOptions)
       .pipe(
         catchError(this.handleError));
 
