@@ -68,7 +68,7 @@ export class ListClientService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpClient.post<Client>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', client, httpOptions)
+    return this.httpClient.post<Client>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajouterClient', client, httpOptions)
       .pipe(
         catchError(this.handleError));
 

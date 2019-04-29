@@ -69,7 +69,7 @@ export class ListDonneurOrdreService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpDonneur.post<Donneur>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', donneur, httpOptions)
+    return this.httpDonneur.post<Donneur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajouterDonneur', donneur, httpOptions)
       .pipe(
         catchError(this.handleError));
 

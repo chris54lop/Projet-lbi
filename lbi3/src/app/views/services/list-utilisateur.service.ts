@@ -36,7 +36,7 @@ export class ListUtilisateurService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpUtilisateur.post<Utilisateur>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', utilisateur, httpOptions)
+    return this.httpUtilisateur.post<Utilisateur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajoutUser', utilisateur, httpOptions)
       .pipe(
         catchError(this.handleError));
 
@@ -59,7 +59,7 @@ export class ListUtilisateurService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpUtilisateur.put<Utilisateur>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', httpOptions)
+    return this.httpUtilisateur.put<Utilisateur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajoutUser', httpOptions)
       .pipe(map((res) => {
         const theUtilisateur = this.utilisateurs.find((item) => {
           return +item['id'] === +utilisateur['id'];

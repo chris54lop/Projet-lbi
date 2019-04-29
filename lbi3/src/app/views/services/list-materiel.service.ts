@@ -53,7 +53,7 @@ export class ListMaterielService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpMateriel.post<Materiel>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', materiel, httpOptions)
+    return this.httpMateriel.post<Materiel>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajouterMateriel', materiel, httpOptions)
       .pipe(
         catchError(this.handleError));
 

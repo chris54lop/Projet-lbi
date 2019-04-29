@@ -66,7 +66,7 @@ export class ListTicketService {
       hdep: '',
       rq: '',
       fileinput: '',
-      fiche: '',
+      fiche: 'installation',
     };
     ticketinstallObject.etat1 = etat1;
     ticketinstallObject.donneur3 = donneur3;
