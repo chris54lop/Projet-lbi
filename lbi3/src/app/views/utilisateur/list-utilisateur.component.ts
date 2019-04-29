@@ -33,7 +33,6 @@ export class ListUtilisateurComponent implements OnInit {
   }
 
   getUtilisateur(): void {
-    this.resetErrors();
     this.listutilisateurService.getUtilisateurFromServer().subscribe(
       (res: Utilisateur[]) => {
         this.utilisateur = res;
@@ -42,6 +41,7 @@ export class ListUtilisateurComponent implements OnInit {
         this.error = err;
       }
     );
+
   }
 
   deleteUser(id) {

@@ -3,7 +3,6 @@ import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {ExcelService} from '../services/excel.service';
 import {Utilisateur} from './utilisateur';
-import {Technicien} from '../techniciens/technicien';
 import {ListUtilisateurService} from '../services/list-utilisateur.service';
 
 
@@ -66,7 +65,7 @@ export class AjoutUtilisateurComponent {
     console.log(this.utilisateur);
     this.listutilisateur.saveUtilisateurToServer(this.utilisateur)
       .subscribe(
-        (res: Technicien[]) => {
+        (res: Utilisateur[]) => {
           // Update the list of materiel
           this.utilisateur = res;
 

@@ -20,7 +20,7 @@ export class TicketInstallComponent implements OnInit {
   ticketinstall = new TicketInstall('', '' , '' , '' , '' , '' , '' ,  '',
     '', '' , '' , '' , '' , '' , '' ,  '',
     '', '' , '' , '' , '' , '' , '' ,  '',
-    '', '' , '' , '' , '' , '' ,'' );
+    '', '' , '' , '' , '' , '' , 'Installation' );
 
 
   date1: number;

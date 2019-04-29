@@ -37,19 +37,20 @@ export class ListUtilisateurService {
       })
     };
     return this.httpUtilisateur.post<Utilisateur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajoutUser', utilisateur, httpOptions)
-      .pipe(
+      .pipe(map((res) => {
+          this.utilisateurs.push(res['utilisateur']);
+          return this.utilisateurs;
+        }),
         catchError(this.handleError));
 
   }
 
   getUtilisateurFromServer(): Observable<Utilisateur> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-      })
-    };
-    return this.httpUtilisateur.get<Utilisateur>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', httpOptions)
-      .pipe(
+    return this.httpUtilisateur.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+      map((res) => {
+          this.utilisateurs = res['utilisateur'];
+          return this.utilisateurs;
+        }),
         catchError(this.handleError));
   }
 
