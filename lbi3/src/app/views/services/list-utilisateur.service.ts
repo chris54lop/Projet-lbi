@@ -9,7 +9,7 @@ import {Utilisateur} from '../utilisateur/utilisateur';
 export class ListUtilisateurService {
 
   headers: any;
-  utilisateurs: Utilisateur[];
+  utilisateurs: Utilisateur[] = [];
 
   constructor(private httpUtilisateur: HttpClient) {
     this.headers = new Headers();
