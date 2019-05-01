@@ -23,7 +23,7 @@ export class TicketIntervComponent implements OnInit {
   ticketinterv = new TicketInterv('', '' , '' , '' , '' , '' , '' ,  '',
     '', '' , '' , '' , '' , '' , '' ,  '',
     '', '' , '' , '' , '' , '' , '' ,  '',
-    '', '' , '' , '' , '' , '' );
+    '', '' , '' , '' , '' , '' , '' );
 
 
 
