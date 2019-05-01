@@ -17,21 +17,17 @@
               </tr>
               </thead>
               <tbody>
-              <div *ngFor="let utilisateur of utilisateurs;let i = id_user;" class="list-group-item row">
+              <div *ngFor="let utilisateur of utilisateurs;let i = index;" class="list-group-item row">
                 <td width=150 style="text-align: center">
-                  <input type="text" [(ngModel)]="utilisateurs[i].name7" class="form-control" #name7="ngModel" [ngClass]="{ 'is-invalid': name7.touched && name7.invalid }">
-                </td>
-                <td width=200 style="text-align: center">
-                  <input type="text" [(ngModel)]="utilisateurs[i].prenom5" class="form-control" #prenom5="ngModel" [ngClass]="{ 'is-invalid': prenom5.touched && prenom5.invalid }">
-                </td>
-                <td width=200 style="text-align: center">
-                  <input type="text" [(ngModel)]="utilisateurs[i].niv" class="form-control" #niv="ngModel" [ngClass]="{ 'is-invalid': niv.touched && niv.invalid }">
                   <input type="text" class="form-control" [(ngModel)]="utilisateur[i].name7" #name7="ngModel" [ngClass]="{ 'is-invalid': name7.touched && name7.invalid }">
+                  {{utilisateur.name7}}
                 </td>
                 <td width=200 style="text-align: center">
                   <input type="text" class="form-control" [(ngModel)]="utilisateur[i].prenom5" #prenom5="ngModel" [ngClass]="{ 'is-invalid': prenom5.touched && prenom5.invalid }">
+                  {{utilisateur.prenom5}}
                 </td>
                 <td width=200 style="text-align: center">
+                  {{utilisateur.niv}}
                   <input type="text" class="form-control" [(ngModel)]="utilisateur[i].niv" #niv="ngModel" [ngClass]="{ 'is-invalid': niv.touched && niv.invalid }">
                 </td>
                 <td width=100><div>

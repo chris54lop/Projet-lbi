@@ -36,7 +36,7 @@ export class ListUtilisateurComponent implements OnInit {
     this.listutilisateurService.getUtilisateurFromServer().subscribe(
       (res: Utilisateur[]) => {
         this.utilisateur = res;
-        console.log(this.utilisateur)
+        console.log(this.utilisateur);
       },
       (err) => {
         this.error = err;

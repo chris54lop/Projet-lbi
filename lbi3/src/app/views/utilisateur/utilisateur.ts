@@ -4,5 +4,6 @@ export class Utilisateur {
     prenom5: string,
     niv: string,
     login: string,
-    password: string) {}
+    password: string,
+    id?:   number) {}
 }

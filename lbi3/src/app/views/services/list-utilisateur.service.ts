@@ -9,7 +9,7 @@ import {Utilisateur} from '../utilisateur/utilisateur';
 export class ListUtilisateurService {
 
   headers: any;
-  utilisateurs: Utilisateur[] = [];
+  utilisateurs: Utilisateur[];
 
   constructor(private httpUtilisateur: HttpClient) {
     this.headers = new Headers();
@@ -18,7 +18,7 @@ export class ListUtilisateurService {
   listutilisateurSubject = new Subject<any[]>();
 
 
-  addUtilisateur( name7: string, prenom5: string, niv: string, password: string) {
+  /*addUtilisateur( name7: string, prenom5: string, niv: string, password: string) {
     const utilisateurObject = {
       name7: '',
       prenom5: '',
@@ -29,7 +29,7 @@ export class ListUtilisateurService {
     utilisateurObject.prenom5 = prenom5;
     utilisateurObject.niv = niv;
     utilisateurObject.password = password;
-  }
+  }*/
   saveUtilisateurToServer(utilisateur: Utilisateur): Observable<Utilisateur> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -37,10 +37,7 @@ export class ListUtilisateurService {
       })
     };
     return this.httpUtilisateur.post<Utilisateur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajoutUser', utilisateur, httpOptions)
-      .pipe(map((res) => {
-          this.utilisateurs.push(res['utilisateur']);
-          return this.utilisateurs;
-        }),
+      .pipe(
         catchError(this.handleError));
 
   }
