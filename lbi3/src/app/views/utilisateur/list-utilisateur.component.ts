@@ -27,9 +27,9 @@ export class ListUtilisateurComponent implements OnInit {
   }
 
   sendTo() {
-    this.router.navigate(['utilisateur/edit-user'],
-      { queryParams : {'utilisateur' : this.utilisateur}});
-
+    this.router.navigate(['utilisateur/edit-user/:id'],
+      { queryParams : {'utilisateur' : this.utilisateurs}});
+      console.log(this.utilisateurs);
   }
 
   getUtilisateur(): void {

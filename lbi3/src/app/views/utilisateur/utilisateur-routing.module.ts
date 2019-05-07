@@ -30,7 +30,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'edit-user',
+        path: 'edit-user/:id',
         component: EditUserComponent,
         data: {
           title: 'Modifier utilisateur'
