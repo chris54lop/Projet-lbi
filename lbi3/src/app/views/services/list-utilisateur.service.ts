@@ -42,10 +42,10 @@ export class ListUtilisateurService {
 
   }
 
-  getUtilisateurFromServer(): Observable<Utilisateur> {
+  getUtilisateurFromServer(): Observable<Utilisateur[]> {
     return this.httpUtilisateur.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
       map((res) => {
-          this.utilisateurs = res['utilisateur'];
+          this.utilisateurs = res as Utilisateur[];
           return this.utilisateurs;
         }),
         catchError(this.handleError));

@@ -17,24 +17,27 @@
               </tr>
               </thead>
               <tbody>
-              <div *ngFor="let utilisateur of utilisateurs;let i = index;" class="list-group-item row">
-                <td width=150 style="text-align: center">
-                  <input type="text" class="form-control" [(ngModel)]="utilisateur[i].name7" #name7="ngModel" [ngClass]="{ 'is-invalid': name7.touched && name7.invalid }">
-                  {{utilisateur.name7}}
+              <tr *ngFor="let utilisateur of utilisateurs;let i = index;">
+                <td style="text-align: center">
+                  <p>
+                    {{utilisateur.name7}}
+                  </p>
                 </td>
-                <td width=200 style="text-align: center">
-                  <input type="text" class="form-control" [(ngModel)]="utilisateur[i].prenom5" #prenom5="ngModel" [ngClass]="{ 'is-invalid': prenom5.touched && prenom5.invalid }">
-                  {{utilisateur.prenom5}}
+                <td style="text-align: center">
+                  <p>
+                    {{utilisateur.prenom5}}
+                  </p>
                 </td>
-                <td width=200 style="text-align: center">
-                  {{utilisateur.niv}}
-                  <input type="text" class="form-control" [(ngModel)]="utilisateur[i].niv" #niv="ngModel" [ngClass]="{ 'is-invalid': niv.touched && niv.invalid }">
+                <td  style="text-align: center">
+                  <p>
+                    {{utilisateur.niv}}
+                  </p>
                 </td>
                 <td width=100><div>
                   <button type="button"  class="btn btn-sm btn-primary" (click)="sendTo()" ><i class="fa fa-dot-circle-o"></i>Modifier</button>
                   <button type="button"  class="btn btn-sm btn-danger" (click)="deleteUser(utilisateur.id)"><i class="fa fa-dot-circle-o"></i>Supprimer</button>
                 </div></td>
-              </div>
+              </tr>
               </tbody>
             </table>
           </div>
