@@ -32,10 +32,10 @@ export class ListMaterielComponent implements OnInit, OnDestroy {
   }
 
   getMateriel(): void {
-    this.resetErrors();
     this.listmaterielService.getMaterielFromServer().subscribe(
       (res: Materiel[]) => {
-        this.materiel = res;
+        this.materiels = res;
+        console.log(res);
       },
       (err) => {
         this.error = err;

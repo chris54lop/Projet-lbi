@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ListMaterielService} from '../services/list-materiel.service';
-import {NgForm} from '@angular/forms';
-import { Materiel} from './materiel';
+import { Materiel } from './materiel';
+import { Type } from './type';
 
 @Component({
   templateUrl: 'ajout-materiel.component.html'
@@ -11,28 +11,18 @@ export class AjoutMaterielComponent implements OnInit {
   materiels: Materiel[];
   error = '';
   success = '';
-
+  types: Type[];
+  type = new Type('');
   materiel = new Materiel('', '' , '' , '' , '' , '' , '' ,  '');
 
   constructor(private listmaterielService: ListMaterielService,
               private router: Router) {
   }
   ngOnInit() {
+    this.getType();
   }
-  onSubmit2(form: NgForm) {
-    const typemat1 = form.value['typemat1'];
-    const marqueinput = form.value['marqueinput'];
-    const modeleinput = form.value['modeleinput'];
-    const matriinput = form.value['matriinput'];
-    const donneur2 = form.value['donneur2'];
-    const client1 = form.value['client1'];
-    const dategarantie1 = form.value['dategarantie1'];
-    const dateachat1 = form.value['dateachat1'];
-    this.listmaterielService.addMateriel(typemat1, marqueinput, modeleinput, matriinput, donneur2, client1, dategarantie1, dateachat1);
-    this.router.navigate(['/materiels/list-materiel']);
 
-  }
-  onSubmit54(d) {
+  onSubmit54() {
 
     this.router.navigate(['/materiels/list-materiel']);
 
@@ -51,6 +41,18 @@ export class AjoutMaterielComponent implements OnInit {
         },
         (err) => this.error = err
       );
+  }
+
+  getType(): void {
+    this.listmaterielService.getTypeFromServer().subscribe(
+      (res: Type[]) => {
+        this.types = res;
+        console.log(res);
+      },
+      (err) => {
+        this.error = err;
+      }
+    );
   }
 
   private resetErrors() {

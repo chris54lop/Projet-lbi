@@ -1,29 +1,38 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import { ListDonneurOrdreService} from '../services/list-donneur-ordre.service';
+import {Donneur} from './donneur';
+import {Utilisateur} from '../utilisateur/utilisateur';
 
 @Component({
   templateUrl: 'list-donneur-ordre.component.html'
 })
-export class ListDonneurOrdreComponent implements OnInit, OnDestroy {
+export class ListDonneurOrdreComponent implements OnInit {
 
-  donneurs: any[];
-  donneurSubscription: Subscription;
+  donneurs: Donneur[];
+  error = '';
+  success = '';
+  donneur = new Donneur('', '', '', '', '', '',
+    '', '', '', '', '', '', '',
+    '', '', '');
 
   constructor( private listdonneurService: ListDonneurOrdreService) { }
 
   ngOnInit() {
-    this.donneurSubscription =
-      this.listdonneurService.donneursSubject.subscribe(
-        (donneurs: any[]) => {
-          this.donneurs = donneurs;
-        }
-      );
-    this.listdonneurService.emitDonneurSubject();
+    this.getDonneur();
   }
 
-  ngOnDestroy() {
-    this.donneurSubscription.unsubscribe();
+  getDonneur(): void {
+    this.listdonneurService.getDonneurFromServer().subscribe(
+      (res: Donneur[]) => {
+        this.donneurs = res;
+        console.log(res);
+      },
+      (err) => {
+        this.error = err;
+      }
+    );
+
   }
 
 }

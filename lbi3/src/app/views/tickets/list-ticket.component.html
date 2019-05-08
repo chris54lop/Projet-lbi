@@ -20,29 +20,49 @@
                 <th width=150></th>
               </tr>
               </thead>
+              <tbody>
+              <tr *ngFor="let ticket of tickets;let i = index;">
+                <td style="text-align: center">
+                  <p>
+                    {{ticket.fiche}}
+                  </p>
+                </td>
+                <td style="text-align: center">
+                  <p>
+                    {{ticket.etat1}}
+                  </p>
+                </td>
+                <td style="text-align: center">
+                  <p>
+                    {{ticket.dateappel2}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{ticket.dateinterv}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{ticket.client2}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{ticket.villeinput}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{ticket.technicien1}} {{ticket.technicien2}} {{ticket.technicien3}} {{ticket.technicien4}}
+                  </p>
+                </td>
+                <td width=100><div>
+                  <button type="button"  class="btn btn-sm btn-primary" (click)="sendTo()" ><i class="fa fa-dot-circle-o"></i>Modifier</button>
+                </div></td>
+              </tr>
+              </tbody>
             </table>
-                <app-ticket
-                  *ngFor="let ticket of tickets"
-                  [listticketetat1]="ticket.etat1"
-                  [listticketdateappel2]="ticket.dateappel2"
-                  [listticketdateinterv]="ticket.dateinterv"
-                  [listticketclient2]="ticket.client2"
-                  [listticketvilleinput]="ticket.villeinput"
-                  [listtickettechnicien1]="ticket.technicien1"
-                  [listtickettechnicien2]="ticket.technicien2"
-                  [listtickettechnicien3]="ticket.technicien3"
-                  [listtickettechnicien4]="ticket.technicien4"
-                  [listticketfiche]="ticket.fiche"
-                  [listticketetat2]="ticket.etat2"
-                  [listticketdateappel3]="ticket.dateappel3"
-                  [listticketdinterv]="ticket.dinterv"
-                  [listticketclient4]="ticket.client4"
-                  [listticketville1input]="ticket.ville1input"
-                  [listtickettechnicien5]="ticket.technicien5"
-                  [listtickettechnicien6]="ticket.technicien6"
-                  [listtickettechnicien7]="ticket.technicien7"
-                  [listtickettechnicien8]="ticket.technicien8"
-                ></app-ticket>
           </div>
         </form>
       </div>

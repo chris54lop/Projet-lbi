@@ -16,6 +16,28 @@
                 <th>  </th>
               </tr>
               </thead>
+              <tbody>
+              <tr *ngFor="let technicien of techniciens;let i = index;">
+                <td style="text-align: center">
+                  <p>
+                    {{technicien.nomt}}
+                  </p>
+                </td>
+                <td style="text-align: center">
+                  <p>
+                    {{technicien.telx}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{technicien.fctx}}
+                  </p>
+                </td>
+                <td width=100><div>
+                  <button type="button"  class="btn btn-sm btn-danger" (click)="deleteUser(utilisateur.id)"><i class="fa fa-dot-circle-o"></i>Supprimer</button>
+                </div></td>
+              </tr>
+              </tbody>
             </table>
             <button type="submit" class="btn btn-sm btn-primary" (click)="onAjout()"><i class="fa fa-dot-circle-o"></i>Ajouter</button>
           </div>

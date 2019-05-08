@@ -18,12 +18,34 @@
                 <th width=100></th>
               </tr>
               </thead>
+              <tbody>
+              <tr *ngFor="let donneur of donneurs;let i = index;">
+                <td style="text-align: center">
+                  <p>
+                    {{donneur.intitinput}}
+                  </p>
+                </td>
+                <td style="text-align: center">
+                  <p>
+                    {{donneur.name2input}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{donneur.tel2input}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{donneur.email2input}}
+                  </p>
+                </td>
+                <td width=100><div>
+                  <button type="button"  class="btn btn-sm btn-primary" (click)="sendTo()" ><i class="fa fa-dot-circle-o"></i>Modifier</button>
+                </div></td>
+              </tr>
+              </tbody>
             </table>
-            <app-donneur *ngFor="let donneur of donneurs"
-                        [listdonneurordreintitinput]="donneur.intitinput"
-                        [listdonneurordrename2input]="donneur.name2input"
-                        [listdonneurordretel2input]="donneur.tel2input"
-                        [listdonneurordreemail2input]="donneur.email2input"></app-donneur>
           </div>
         </form>
       </div>

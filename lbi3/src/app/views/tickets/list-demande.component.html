@@ -20,15 +20,45 @@
                 <th width=100> </th>
               </tr>
               </thead>
+              <tbody>
+              <tr *ngFor="let demande of demandes;let i = index;">
+                <td style="text-align: center">
+                  <p>
+                    {{demande.dateappel1}}
+                  </p>
+                </td>
+                <td style="text-align: center">
+                  <p>
+                    {{demande.recep}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{demande.client}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{demande.typefiche}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{demande.typemat3}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{demande.descri}}
+                  </p>
+                </td>
+                <td width=100><div>
+                  <button type="button"  class="btn btn-sm btn-primary" (click)="onCreer()"><i class="fa fa-dot-circle-o"></i>Créer</button>
+                </div></td>
+              </tr>
+              </tbody>
             </table>
-            <app-demande *ngFor="let demande of demandes"
-                         [demandedateappel1]="demande.dateappel1"
-                         [demanderecep]="demande.recep"
-                         [demandeclient]="demande.client"
-                         [demandetypefiche]="demande.typefiche"
-                         [demandetypemat3]="demande.typemat3"
-                         [demandedescri]="demande.descri"></app-demande>
-          </div> <!--A faire depuis le serveur-->
+          </div>
         </form>
       </div>
     </div>

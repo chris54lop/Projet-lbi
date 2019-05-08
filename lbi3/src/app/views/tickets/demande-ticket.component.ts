@@ -25,18 +25,6 @@ export class DemandeTicketComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  onSubmit1( form: NgForm) {
-    const typefiche = form.value['typefiche'];
-    const dateappel1 = form.value['dateappel1'];
-    const recep = form.value['recep'];
-    const client = form.value['client'];
-    const typemat3 = form.value['typemat3'];
-    const descri = form.value['descri'];
-    this.listdemandeservice.addDemande(typefiche, dateappel1, recep, client, typemat3, descri);
-    this.router.navigate(['/dashboard']);
-  }
-
   onSubmit() {
 
     this.router.navigate(['/dashboard']);

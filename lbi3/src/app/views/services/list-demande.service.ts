@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {catchError} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {Demande} from '../tickets/demande';
 
 
@@ -19,7 +19,7 @@ export class ListDemandeService {
 
 
 
-  emitDemandeSubject() {
+  /*emitDemandeSubject() {
     this.demandesSubject.next(this.demandes.slice());
   }
 
@@ -43,7 +43,7 @@ export class ListDemandeService {
     this.demandes.push(demandeObject);
 
 
-  }
+  }*/
 
   saveDemandeToServer(demande: Demande): Observable<Demande> {
     const httpOptions = {
@@ -55,6 +55,15 @@ export class ListDemandeService {
       .pipe(
         catchError(this.handleError));
 
+  }
+
+  getDemandeFromServer(): Observable<Demande[]> {
+    return this.httpDemande.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+      map((res) => {
+        this.demandes = res as Demande[];
+        return this.demandes;
+      }),
+      catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

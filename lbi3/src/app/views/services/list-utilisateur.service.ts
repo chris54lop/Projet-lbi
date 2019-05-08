@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, Subject, throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {Utilisateur} from '../utilisateur/utilisateur';
@@ -15,21 +15,10 @@ export class ListUtilisateurService {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
   }
-  listutilisateurSubject = new Subject<any[]>();
 
 
-  /*addUtilisateur( name7: string, prenom5: string, niv: string, password: string) {
-    const utilisateurObject = {
-      name7: '',
-      prenom5: '',
-      niv: '',
-      password: '',
-    };
-    utilisateurObject.name7 = name7;
-    utilisateurObject.prenom5 = prenom5;
-    utilisateurObject.niv = niv;
-    utilisateurObject.password = password;
-  }*/
+
+
   saveUtilisateurToServer(utilisateur: Utilisateur): Observable<Utilisateur> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -50,6 +39,16 @@ export class ListUtilisateurService {
         }),
         catchError(this.handleError));
   }
+
+  /*getUtilisateurById(id: number): Observable<Utilisateur[]> {
+    return this.httpUtilisateur.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat' + id ).pipe(
+      map((res) => {
+        this.utilisateurs = res as Utilisateur[];
+        return this.utilisateurs;
+      }),
+      catchError(this.handleError));
+  }*/
+
 
   updateUser(utilisateur: Utilisateur): Observable<Utilisateur> {
     const httpOptions = {

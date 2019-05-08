@@ -3,7 +3,7 @@ import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Materiel} from '../materiels/materiel';
 import {Type} from '../materiels/type';
-import {catchError} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 
 @Injectable ()
 export class ListMaterielService {
@@ -11,8 +11,27 @@ export class ListMaterielService {
 
   materiels: Materiel[] = [];
   headers: any;
+  types: Type[] = [
+    {
+      typemat2: 'TBI'
+    },
+    {
+      typemat2: 'Informatique'
+    },
+    {
+      typemat2: 'Imprimante'
+    },
+    {
+      typemat2: 'Vidéoprojecteur'
+    },
+    {
+      typemat2: 'Ecran interactif'
+    },
+  ];
 
-  constructor(private httpMateriel: HttpClient) {
+
+  constructor(private httpMateriel: HttpClient,
+              private httpType: HttpClient) {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
   }
@@ -24,28 +43,6 @@ export class ListMaterielService {
     this.materielsSubject.next(this.materiels.slice());
   }
 
-  addMateriel( typemat1: string, marqueinput: string, modeleinput: string, matriinput: string, donneur2: string, client1: string, dategarantie1: string, dateachat1: string) {
-    const materielObject = {
-      typemat1: '',
-      marqueinput: '',
-      modeleinput: '',
-      matriinput: '',
-      donneur2: '',
-      client1: '',
-      dategarantie1: '',
-      dateachat1: '',
-
-    };
-    materielObject.typemat1 = typemat1;
-    materielObject.marqueinput = marqueinput;
-    materielObject.modeleinput = modeleinput;
-    materielObject.matriinput = matriinput;
-    materielObject.donneur2 = donneur2;
-    materielObject.client1 = client1;
-    materielObject.dategarantie1 = dategarantie1;
-    materielObject.dateachat1 = dateachat1;
-   // this.materiels.push(materielObject);
-  }
 
   saveMaterielToServer(materiel: Materiel): Observable<Materiel> {
     const httpOptions = {
@@ -71,19 +68,25 @@ export class ListMaterielService {
   }
 
   getMaterielFromServer(): Observable<Materiel> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-      })
-    };
-    return this.httpMateriel.get<Materiel>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', httpOptions)
-      .pipe(
-        catchError(this.handleError));
+    return this.httpMateriel.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+      map((res) => {
+        this.materiels = res as Materiel[];
+        return this.materiels;
+      }),
+      catchError(this.handleError));
+  }
+
+  getTypeFromServer(): Observable<Type> {
+    return this.httpType.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+      map((res) => {
+        this.types = res as Type[];
+        return this.types;
+      }),
+      catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
       console.log(error);
-
       // return an observable with a user friendly message
       return throwError('Error! something went wrong.');
   }

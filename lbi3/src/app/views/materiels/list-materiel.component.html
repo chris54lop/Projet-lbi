@@ -16,21 +16,31 @@
                 <th width=200 style="text-align: center; color: #7AB51C">Garantie</th>
               </tr>
               </thead>
+            <tbody>
+            <tr *ngFor="let materiel of materiels;let i = index;">
+                <td style="text-align: center">
+                  <p>
+                    {{materiel.typemat1}}
+                  </p>
+                </td>
+              <td style="text-align: center">
+                <p>
+                  {{materiel.marqueinput}}
+                </p>
+              </td>
+              <td style="text-align: center">
+                <p>
+                  {{materiel.client1}}
+                </p>
+              </td>
+              <td style="text-align: center">
+                <p>
+                  {{materiel.dategarantie1}}
+                </p>
+              </td>
+            </tr>
+            </tbody>
             </table>
-            <div *ngFor="let materiel of materiels;let i = index;" class="list-group-item row">
-                <td width=150 style="text-align: center">
-                  <input type="text" class="form-control" [(ngModel)]="materiels[i].typemat1" #typemat1="ngModel" [ngClass]="{ 'is-invalid': typemat1.touched && typemat1.invalid }">
-                </td>
-                <td width=200 style="text-align: center">
-                  <input type="text" class="form-control" [(ngModel)]="materiels[i].marqueinput" #marqueinput="ngModel" [ngClass]="{ 'is-invalid': marqueinput.touched && marqueinput.invalid }">
-                </td>
-                <td width=200 style="text-align: center">
-                  <input type="text" class="form-control" [(ngModel)]="materiels[i].client1" #client1="ngModel" [ngClass]="{ 'is-invalid': client1.touched && client1.invalid }">
-                </td>
-                <td width=200 style="text-align: center">
-                  <input type="text" class="form-control" [(ngModel)]="materiels[i].dategarantie1" #dategarantie1="ngModel" [ngClass]="{ 'is-invalid': dategarantie1.touched && dategarantie1.invalid }">
-                </td>
-            </div>
           </div>
         </form>
       </div>

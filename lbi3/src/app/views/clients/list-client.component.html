@@ -18,12 +18,34 @@
                 <th width=100>  </th>
               </tr>
               </thead>
+              <tbody>
+              <tr *ngFor="let client of clients;let i = index;">
+                <td style="text-align: center">
+                  <p>
+                    {{client.etabl}}
+                  </p>
+                </td>
+                <td style="text-align: center">
+                  <p>
+                    {{client.addr}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{client.ville}}
+                  </p>
+                </td>
+                <td  style="text-align: center">
+                  <p>
+                    {{client.nameinput}}
+                  </p>
+                </td>
+                <td width=100><div>
+                  <button type="button"  class="btn btn-sm btn-primary" (click)="sendTo()" ><i class="fa fa-dot-circle-o"></i>Modifier</button>
+                </div></td>
+              </tr>
+              </tbody>
             </table>
-            <app-client *ngFor="let client of clients"
-                         [clientetabl]="client.etabl"
-                         [clientaddr]="client.addr"
-                         [clientville]="client.ville"
-                         [clientnameinput]="client.nameinput"></app-client>
           </div>
         </form>
       </div>

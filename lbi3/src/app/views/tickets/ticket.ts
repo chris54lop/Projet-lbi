@@ -1,4 +1,4 @@
-export class TicketInterv {
+export class Ticket {
   constructor(
     etat1: string,
     donneur3: string,
@@ -31,5 +31,5 @@ export class TicketInterv {
     hdep: string,
     rq: string,
     fiche: string
-  ) {}
+    ) {}
 }

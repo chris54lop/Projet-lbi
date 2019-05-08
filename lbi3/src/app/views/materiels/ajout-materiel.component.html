@@ -10,11 +10,7 @@
             <label class="col-md-3 col-form-label" for="typemat1" style="color: #7AB51C">Type</label>
             <div class="col-md-9">
               <select id="typemat1" name="typemat1" class="form-control" [(ngModel)]="materiel.typemat1" >
-                <option value="TBI">TBI</option>
-                <option value="Informatique">Informatique</option>
-                <option value="Imprimante">Imprimante</option>
-                <option value="Vidéoprojecteur">Vidéoprojecteur</option>
-                <option value="Ecran interactif">Ecran interactif</option>
+                <option *ngFor="let type of types;">{{type.typemat2}}</option>
               </select>
             </div>
           </div>
