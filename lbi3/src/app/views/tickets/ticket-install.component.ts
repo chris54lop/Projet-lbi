@@ -16,7 +16,6 @@ export class TicketInstallComponent implements OnInit {
   tickets: Ticket[];
   error = '';
   success = '';
-
   ticket = new Ticket('', '' , '' , '' , '' , '' , '' ,  '',
     '', '' , '' , '' , '' , '' , '' ,  '',
     '', '' , '' , '' , '' , '' , '' ,  '',

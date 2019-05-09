@@ -9,25 +9,9 @@ import {catchError, map} from 'rxjs/operators';
 export class ListMaterielService {
 
 
-  materiels: Materiel[] = [];
+  materiels: Materiel[];
   headers: any;
-  types: Type[] = [
-    {
-      typemat2: 'TBI'
-    },
-    {
-      typemat2: 'Informatique'
-    },
-    {
-      typemat2: 'Imprimante'
-    },
-    {
-      typemat2: 'Vidéoprojecteur'
-    },
-    {
-      typemat2: 'Ecran interactif'
-    },
-  ];
+  types: Type[];
 
 
   constructor(private httpMateriel: HttpClient,

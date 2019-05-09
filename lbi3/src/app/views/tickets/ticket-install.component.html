@@ -1,34 +1,33 @@
-<form (ngSubmit)="onSubmit(c)" #c="ngForm">
-  <div id="content" #content>
-<div class="row">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="card-header" style="background-color: #FFFFFF">
-        <img src="assets\img\brand\Logo_superieur.png" alt="LBI_Designation"/>
-        <H3 style="text-align: center; color: #7AB51C" ><strong>FICHE D'INSTALLATION</strong></H3>
-        <div class="row">
-        <div class="col-md-6">
-          <label class="col-md-3 col-form-label" for="etat1" style="color: #7AB51C">Etat</label>
-          <select id="etat1" name="etat1" class="form-control" [(ngModel)]="ticketinstall.etat1" >
-            <option value="En attente">En attente</option>
-            <option value="En cours">En cours</option>
-            <option value="Résolu">Résolu</option>
-            <option value="Annulé">Annulé</option>
-          </select>
-        </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div>
-            <div class="card-header" style="background-color: #009DDE">
-              <div style="text-align: center; color: #FFFFFF"><strong>INFORMATIONS CLIENT</strong></div>
+<form (ngSubmit)="onSubmit1(b)" #b="ngForm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header" style="background-color: #FFFFFF">
+          <img src="assets\img\brand\Logo_superieur.png" alt="LBI_Designation"/>
+          <H3 style="text-align: center; color: #7AB51C" ><strong>FICHE D'INSTALLATION</strong></H3>
+          <div class="row">
+            <div class="col-md-6">
+              <label class="col-md-3 col-form-label" for="etat2" style="color: #7AB51C">Etat</label>
+              <select id="etat2" name="etat2" class="form-control" [(ngModel)]="ticket.etat2">
+                <option value="En attente">En attente</option>
+                <option value="En cours">En cours</option>
+                <option value="Résolu">Résolu</option>
+                <option value="Annulé">Annulé</option>
+              </select>
             </div>
-            <div class="card-body">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <div class="card-header" style="background-color: #009DDE">
+                <div style="text-align: center; color: #FFFFFF"><strong>INFORMATIONS CLIENT</strong></div>
+              </div>
+              <div class="card-body">
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="donneur3" style="color: #7AB51C">Donneur d'ordre</label>
+                  <label class="col-md-3 col-form-label" for="donneur4" style="color: #7AB51C">Donneur d'ordre</label>
                   <div class="col-md-6">
-                    <select id="donneur3" name="donneur3" class="form-control" [(ngModel)]="ticketinstall.donneur3" >
+                    <select id="donneur4" name="donneur4" class="form-control" [(ngModel)]="ticket.donneur4">
                       <option value="Univ Lorraine">Univ Lorraine</option>
                       <option value="Mairie Nancy">Mairie Nancy</option>
                       <option value="Conseil régional">Conseil régional</option>
@@ -37,9 +36,9 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="client2" style="color: #7AB51C">Client</label>
+                  <label class="col-md-3 col-form-label" for="client4" style="color: #7AB51C">Client</label>
                   <div class="col-md-6">
-                    <select id="client2" name="client2" class="form-control" [(ngModel)]="ticketinstall.client2" >
+                    <select id="client4" name="client4" class="form-control" [(ngModel)]="ticket.client4">
                       <option value="Polytech">Polytech</option>
                       <option value="Emile Gallé">Emile Gallé</option>
                       <option value="Dalkia">Dalkia</option>
@@ -49,46 +48,46 @@
                 </div>
                 <!--Généré automatiquement en fct des choix précédents-->
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="hfaddr" style="color: #7AB51C">Adresse</label>
+                  <label class="col-md-3 col-form-label" for="addr1input" style="color: #7AB51C">Adresse</label>
                   <div class="col-md-6">
-                    <input type="text" id="hfaddr" name="hfaddr" class="form-control" placeholder="Adresse..." [(ngModel)]="ticketinstall.hfaddr" >
+                    <input type="text" id="addr1input" name="addr1input" class="form-control" placeholder="Adresse..." [(ngModel)]="ticket.addr1input">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="villeinput" style="color: #7AB51C">CP-Ville</label>
+                  <label class="col-md-3 col-form-label" for="ville1input" style="color: #7AB51C">Ville</label>
                   <div class="col-md-6">
-                    <input type="text" id="villeinput" name="villeinput" class="form-control" placeholder="Ville..." [(ngModel)]="ticketinstall.villeinput" >
+                    <input type="text" id="ville1input" name="ville1input" class="form-control" placeholder="Ville..." [(ngModel)]="ticket.ville1input">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="infoinput" style="color: #7AB51C">Infos supp.</label>
                   <div class="col-md-6">
-                    <input type="text" id="infoinput" name="infoinput" class="form-control" placeholder="(N° salle, étage..)" [(ngModel)]="ticketinstall.infoinput" >
+                    <input type="text" id="infoinput" name="infoinput" class="form-control" placeholder="(N° salle, étage..)" [(ngModel)]="ticket.infoinput">
                   </div>
                 </div>
                 <!--A remplir manuellement-->
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="telfixe" style="color: #7AB51C">Téléphone</label>
+                  <label class="col-md-3 col-form-label" for="telfixe1" style="color: #7AB51C">Téléphone</label>
                   <div class="col-md-6">
-                    <input type="tel" id="telfixe" name="telfixe" class="form-control" placeholder="Tel..." [(ngModel)]="ticketinstall.telfixe">
+                    <input type="tel" id="telfixe1" name="telfixe1" class="form-control" placeholder="Tel..." [(ngModel)]="ticket.telfixe1" >
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="telportable" style="color: #7AB51C">Portable</label>
+                  <label class="col-md-3 col-form-label" for="telportable1" style="color: #7AB51C">Portable</label>
                   <div class="col-md-6">
-                    <input type="tel" id="telportable" name="telportable" class="form-control" placeholder="Tel..." [(ngModel)]="ticketinstall.telportable">
+                    <input type="tel" id="telportable1" name="telportable1" class="form-control" placeholder="Tel..." [(ngModel)]="ticket.telportable1">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="responsinput" style="color: #7AB51C">Interlocuteur</label>
+                  <label class="col-md-3 col-form-label" for="respons1input" style="color: #7AB51C">Interlocuteur</label>
                   <div class="col-md-6">
-                    <input type="text" id="responsinput" name="responsinput" class="form-control" placeholder="Interlocuteur..." [(ngModel)]="ticketinstall.responsinput" >
+                    <input type="text" id="respons1input" name="respons1input" class="form-control" placeholder="Interlocuteur..." [(ngModel)]="ticket.respons1input">
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="typecontrat" style="color: #7AB51C">Type de contrat</label>
+                  <label class="col-md-3 col-form-label" for="typecontrat1" style="color: #7AB51C">Type de contrat</label>
                   <div class="col-md-6">
-                    <select id="typecontrat" name="typecontrat" class="form-control" [(ngModel)]="ticketinstall.typecontrat" >
+                    <select id="typecontrat1" name="typecontrat1" class="form-control" [(ngModel)]="ticket.typecontrat1" >
                       <option value="Régie">Régie</option>
                       <option value="Sous contrat">Sous contrat</option>
                       <option value="Sous garantie">Sous garantie</option>
@@ -96,61 +95,61 @@
                     </select>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div>
-            <div class="card-header" style="background-color: #009DDE">
-              <div style="text-align: center; color: #FFFFFF"><strong>INFORMATIONS INTERNE</strong></div>
-            </div>
-            <div class="card-body">
-              <div class="form-group row">
-                <label class="col-md-3 col-form-label" for="technicien1" style="color: #7AB51C">Technicien n°1</label>
-                <div class="col-md-6">
-                  <input class="form-control" id="technicien1" type="text" name="technicien1" [(ngModel)]="ticketinstall.technicien1" >
-                </div>
+          <div class="col-md-6">
+            <div>
+              <div class="card-header" style="background-color: #009DDE">
+                <div style="text-align: center; color: #FFFFFF"><strong>INFORMATIONS INTERNE</strong></div>
               </div>
-              <div class="form-group row">
-                <label class="col-md-3 col-form-label" for="technicien2" style="color: #7AB51C">Technicien n°2</label>
-                <div class="col-md-6">
-                  <input class="form-control" id="technicien2" type="text" name="technicien2" [(ngModel)]="ticketinstall.technicien2" >
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-md-3 col-form-label" for="technicien3" style="color: #7AB51C">Technicien n°3</label>
-                <div class="col-md-6">
-                  <input class="form-control" id="technicien3" type="text" name="technicien3" [(ngModel)]="ticketinstall.technicien3" >
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-md-3 col-form-label" for="technicien4" style="color: #7AB51C">Technicien n°4</label>
-                <div class="col-md-6">
-                  <input class="form-control" id="technicien4" type="text" name="technicien4" [(ngModel)]="ticketinstall.technicien4" >
-                </div>
-              </div>
+              <div class="card-body">
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="dateappel2"style="color: #7AB51C">Date appel</label>
+                  <label class="col-md-3 col-form-label" for="technicien5" style="color: #7AB51C">Technicien n°1</label>
                   <div class="col-md-6">
-                    <input class="form-control" id="dateappel2" type="date" name="dateappel2" [(ngModel)]="ticketinstall.dateappel2" placeholder="Date">
+                    <input class="form-control" id="technicien5" type="text" name="technicien5" [(ngModel)]="ticket.technicien5" >
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="dateinterv" style="color: #7AB51C">Date inter.</label>
+                  <label class="col-md-3 col-form-label" for="technicien6" style="color: #7AB51C">Technicien n°2</label>
                   <div class="col-md-6">
-                    <input class="form-control" id="dateinterv" type="date" name="dateinterv" [(ngModel)]="ticketinstall.dateinterv" >
+                    <input class="form-control" id="technicien6" type="text" name="technicien6" [(ngModel)]="ticket.technicien6" >
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="heureinterv" style="color: #7AB51C">Heure inter.</label>
+                  <label class="col-md-3 col-form-label" for="technicien7" style="color: #7AB51C">Technicien n°3</label>
                   <div class="col-md-6">
-                    <input class="form-control" id="heureinterv" type="time" name="heureinterv" placeholder="Heure" [(ngModel)]="ticketinstall.heureinterv" >
+                    <input class="form-control" id="technicien7" type="text" name="technicien7" [(ngModel)]="ticket.technicien7" >
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="typemat4" style="color: #7AB51C">Type de matériel.</label>
+                  <label class="col-md-3 col-form-label" for="technicien8" style="color: #7AB51C">Technicien n°4</label>
                   <div class="col-md-6">
-                    <select id="typemat4" name="typemat4" class="form-control" [(ngModel)]="ticketinstall.typemat4">
+                    <input class="form-control" id="technicien8" type="text" name="technicien8" [(ngModel)]="ticket.technicien8" >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="dateappel3"style="color: #7AB51C">Date appel</label>
+                  <div class="col-md-6">
+                    <input class="form-control" id="dateappel3" type="date" name="dateappel3" placeholder="Date" [(ngModel)]="ticket.dateappel3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="dinterv" style="color: #7AB51C">Date inter.</label>
+                  <div class="col-md-6">
+                    <input class="form-control" id="dinterv" type="date" name="dinterv" placeholder="Date" [(ngModel)]="ticket.dinterv">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="hinter" style="color: #7AB51C">Heure inter.</label>
+                  <div class="col-md-6">
+                    <input class="form-control" id="hinter" type="time" name="hinter" [(ngModel)]="ticket.hinter">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-3 col-form-label" for="typemat5" style="color: #7AB51C">Type de matériel</label>
+                  <div class="col-md-6">
+                    <select id="typemat5" name="typemat5" class="form-control" [(ngModel)]="ticket.typemat5">
                       <option value="TBI">TBI</option>
                       <option value="Informatique">Informatique</option>
                       <option value="Imprimante">Imprimante</option>
@@ -160,118 +159,118 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-md-3 col-form-label" for="matri1input" style="color: #7AB51C">Matricule</label>
+                  <label class="col-md-3 col-form-label" for="matri2input" style="color: #7AB51C">Matricule</label>
                   <div class="col-md-6">
-                    <input type="text" id="matri1input" name="matri1input" class="form-control" placeholder="Matricule..." [(ngModel)]="ticketinstall.matri1input">
+                    <input type="text" id="matri2input" name="matri2input" class="form-control" placeholder="Matricule..." [(ngModel)]="ticket.matri2input">
                   </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card-header" style="background-color: #009DDE">
-            <div style="text-align: center; color: #FFFFFF"><strong>DESCRIPTION DU MATERIEL A INSTALLER</strong></div>
-          </div>
-          <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card-header" style="background-color: #009DDE">
+              <div style="text-align: center; color: #FFFFFF"><strong>DESCRIPTION DU MATERIEL A INSTALLER</strong></div>
+            </div>
+            <div class="card-body">
               <div class="form-group row">
                 <div class="col-md-12">
-                  <textarea id="descrimat" name="descrimat" rows="4" class="form-control" placeholder="Veuillez décrire le(s) matériel(s).." [(ngModel)]="ticketinstall.descrimat" ></textarea>
+                  <textarea id="descripanne" name="descripanne" rows="4" class="form-control" placeholder="Veuillez décrire le(s) matériel(s).." [(ngModel)]="ticket.descripanne"></textarea>
                 </div>
               </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card-header" style="background-color: #009DDE">
-            <div style="text-align: center; color: #FFFFFF"><strong>DESCRIPTION DES OPERATIONS EFFECTUEES</strong></div>
-          </div>
-          <div class="card-body">
-            <div class="form-group row">
-              <div class="col-md-12">
-                <textarea id="descritravail" name="descritravail" rows="4" class="form-control" placeholder="Veuillez décrire les opérations.." [(ngModel)]="ticketinstall.descritravail" ></textarea>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card-header" style="background-color: #009DDE">
+              <div style="text-align: center; color: #FFFFFF"><strong>DESCRIPTION DES OPERATIONS EFFECTUEES</strong></div>
+            </div>
+            <div class="card-body">
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <textarea id="descritravail1" name="descritravail1" rows="5" class="form-control" placeholder="Veuillez décrire les opérations.." [(ngModel)]="ticket.descritravail1"></textarea>
+                </div>
+              </div>
+              <div class="card-body">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th style="background-color: #009DDE; color: #FFFFFF;">Désignation</th>
+                    <th style="background-color: #009DDE; color: #FFFFFF;">Détail</th>
+                    <th style="background-color: #009DDE; color: #FFFFFF;">Quantité</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td style="color: #7AB51C">Prise en charge et forfait déplacement : 20km</td>
+                    <td><input type="text" id="foraitinput" name="forfaitinput" class="form-control" [(ngModel)]="ticket.forfaitinput"></td>
+                    <td>
+                      <div class="col-md-3"><input type="text" id="quan1input" name="quan1input" class="form-control" [(ngModel)]="ticket.quan1input"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="color: #7AB51C">Main-d'oeuvre</td>
+                    <td><input type="text" id="oeuvreinput" name="oeuvreinput" class="form-control" [(ngModel)]="ticket.oeuvreinput"></td>
+                    <td><div class="col-md-3"><input type="text" id="quan2input" name="quan2input" class="form-control" [(ngModel)]="ticket.quan2input"></div></td>
+                  </tr>
+                  <tr>
+                    <td style="color: #7AB51C">Pièces détachées</td>
+                    <td><textarea id="pieceinput" name="pieceinput" rows="2" class="form-control" [(ngModel)]="ticket.pieceinput"></textarea></td>
+                    <td><div class="col-md-3"><input type="text" id="quan3input" name="quan3input" class="form-control" [(ngModel)]="ticket.quan3input"></div></td>
+                  </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div class="card-body">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th style="background-color: #009DDE; color: #FFFFFF;">Désignation</th>
-                  <th style="background-color: #009DDE; color: #FFFFFF;">Détail</th>
-                  <th style="background-color: #009DDE; color: #FFFFFF;">Quantité</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td style="color: #7AB51C">Prise en charge et forfait déplacement : 20km</td>
-                  <td><input type="text" id="forfaitinput" name="forfaitinput" class="form-control" [(ngModel)]="ticketinstall.forfaitinput"></td>
-                  <td>
-                    <div class="col-md-3"><input type="text" id="quan1input" name="quan1input" class="form-control" [(ngModel)]="ticketinstall.quan1input"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="color: #7AB51C">Main-d'oeuvre</td>
-                  <td><input type="text" id="oeuvreinput" name="oeuvreinput" class="form-control" [(ngModel)]="ticketinstall.oeuvreinput"></td>
-                  <td><div class="col-md-3"><input type="text" id="quan2input" name="quan2input" class="form-control" [(ngModel)]="ticketinstall.quan2input"></div></td>
-                </tr>
-                <tr>
-                  <td style="color: #7AB51C">Pièces détachées</td>
-                  <td><textarea id="pieceinput" name="pieceinput" rows="2" class="form-control" [(ngModel)]="ticketinstall.pieceinput"></textarea></td>
-                  <td><div class="col-md-3"><input type="text" id="quan3input" name="quan3input" class="form-control" [(ngModel)]="ticketinstall.quan3input"></div></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div>
-            <div class="card-header" style="background-color: #009DDE">
-              <div style="text-align: center; color: #FFFFFF"><strong>CLIENT</strong></div>
-            </div>
-            <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <div>
+              <div class="card-header" style="background-color: #009DDE">
+                <div style="text-align: center; color: #FFFFFF"><strong>CLIENT</strong></div>
+              </div>
+              <div class="card-body">
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label for="name5input" style="color: #7AB51C">Nom du signataire</label>
-                      <input type="text" class="form-control" id="name5input" name="name5input" >
+                      <label for="name6input" style="color: #7AB51C">Nom du signataire</label>
+                      <input type="text" class="form-control" id="name6input" name="name6input" >
                     </div>
                   </div>
                 </div><!--/.row-->
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label for="textarea3input" style="color: #7AB51C">Signature et cachet du client</label>
-                      <signature-pad id="textarea3input"></signature-pad>
+                      <label for="textarea7input" style="color: #7AB51C">Signature et cachet du client</label>
+                      <signature-pad id="textarea7input"></signature-pad>
                     </div>
                   </div>
                 </div><!--/.row-->
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div>
-            <div class="card-header" style="background-color: #009DDE">
-              <div style="text-align: center; color: #FFFFFF;"><strong>TECHNICIEN</strong></div>
-            </div>
-            <div class="card-body">
+          <div class="col-md-4">
+            <div>
+              <div class="card-header" style="background-color: #009DDE">
+                <div style="text-align: center; color: #FFFFFF;"><strong>TECHNICIEN</strong></div>
+              </div>
+              <div class="card-body">
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label for="harrive" style="color: #7AB51C">Heure arrivée</label>
-                      <input class="form-control" id="harrive" type="time" name="harrive" [(ngModel)]="ticketinstall.harrive" >
+                      <label for="harrive1" style="color: #7AB51C">Heure arrivée</label>
+                      <input class="form-control" id="harrive1" type="time" name="harrive1" [(ngModel)]="ticket.harrive1">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label for="hdep" style="color: #7AB51C">Heure départ</label>
-                      <input class="form-control" id="hdep" type="time" name="hdep" [(ngModel)]="ticketinstall.hdep" >
+                      <label for="hdep1" style="color: #7AB51C">Heure départ</label>
+                      <input class="form-control" id="hdep1" type="time" name="hdep1" [(ngModel)]="ticket.hdep1">
                     </div>
                   </div>
                 </div>
@@ -282,38 +281,36 @@
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
-          </div>
-        </div><!--/.row-->
-        <div class="col-md-4">
-          <div>
-            <div class="card-header" style="background-color: #009DDE">
-              <div style="text-align: center; color: #FFFFFF" > <strong>REMARQUE OU RAISON DE CLOTURE</strong></div>
-            </div>
-            <div class="card-body">
+          </div><!--/.row-->
+          <div class="col-md-4">
+            <div>
+              <div class="card-header" style="background-color: #009DDE">
+                <div style="text-align: center; color: #FFFFFF" > <strong>RAISON DE CLOTURE DU TICKET</strong></div>
+              </div>
+              <div class="card-body">
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <textarea id="rq" name="rq" rows="8" class="form-control" [(ngModel)]="ticketinstall.rq" ></textarea>
+                      <textarea id="rq1" name="rq1" rows="8" class="form-control" [(ngModel)]="ticket.rq1"></textarea>
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
+          <div style="text-align: center" class="col-md-12">
+            <img src="assets\img\brand\Footer.png" alt="LBI_Designation"/>
+          </div>
+          <div class="col-md-9">
+            <input type="file" id="fileinput1" name="fileinput1" ngModel>
+          </div>
         </div>
-        <div style="text-align: center" class="col-md-12">
-          <img src="assets\img\brand\Footer.png" alt="LBI_Designation"/>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-sm btn-primary" [disabled]="b.invalid"><i class="fa fa-dot-circle-o"></i> Enregistrer</button>
         </div>
-        <div class="col-md-9">
-          <input type="file" id="fileinput" name="fileinput">
-        </div>
-      </div>
-      <div class="card-footer">
-        <button type="submit" class="btn btn-sm btn-primary" [disabled]="c.invalid"><i class="fa fa-dot-circle-o"></i> Enregistrer</button>
-        <button type="button" class="btn btn-sm btn-danger" value="cap" (click)="generatePDF()"><i class="fa fa-file-pdf-o"> Export to pdf</i></button>
       </div>
     </div>
-  </div>
-</div>
   </div>
 </form>
