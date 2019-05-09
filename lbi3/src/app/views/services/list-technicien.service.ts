@@ -26,13 +26,15 @@ export class ListTechnicienService {
   }
 
   getTechnicienFromServer(): Observable<Technicien[]> {
-    return this.httpTechnicien.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+    return this.httpTechnicien.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getTech').pipe(
       map((res) => {
         this.techniciens = res as Technicien[];
         return this.techniciens;
       }),
       catchError(this.handleError));
   }
+
+  //maj tech url: 'http://localhost:8080/IntranetLbiWeb/rest/Intranet/majTech'
 
   private handleError(error: HttpErrorResponse) {
     console.log(error);

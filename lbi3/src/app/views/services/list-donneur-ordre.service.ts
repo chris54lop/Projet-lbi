@@ -37,13 +37,14 @@ export class ListDonneurOrdreService {
   }
 
   getDonneurFromServer(): Observable<Donneur[]> {
-    return this.httpDonneur.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+    return this.httpDonneur.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getDonneur').pipe(
       map((res) => {
         this.donneurs = res as Donneur[];
         return this.donneurs;
       }),
       catchError(this.handleError));
   }
+  // maj donneur http://localhost:8080/IntranetLbiWeb/rest/Intranet/majDonneur
 
   private handleError(error: HttpErrorResponse) {
     console.log(error);

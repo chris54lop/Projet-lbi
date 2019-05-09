@@ -32,7 +32,7 @@ export class ListUtilisateurService {
   }
 
   getUtilisateurFromServer(): Observable<Utilisateur[]> {
-    return this.httpUtilisateur.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+    return this.httpUtilisateur.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getUser').pipe(
       map((res) => {
           this.utilisateurs = res as Utilisateur[];
           return this.utilisateurs;
@@ -56,7 +56,7 @@ export class ListUtilisateurService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpUtilisateur.put<Utilisateur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajoutUser', httpOptions)
+    return this.httpUtilisateur.put<Utilisateur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/majUser', httpOptions)
       .pipe(map((res) => {
         const theUtilisateur = this.utilisateurs.find((item) => {
           return +item['id'] === +utilisateur['id'];
@@ -76,7 +76,7 @@ export class ListUtilisateurService {
   delete(id: number): Observable<Utilisateur[]> {
     const params = new HttpParams()
       .set('id', id.toString());
-    return this.httpUtilisateur.delete('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', { params: params })
+    return this.httpUtilisateur.delete('http://localhost:8080/IntranetLbiWeb/rest/Intranet/deleteUser', { params: params })
       .pipe(map(res => {
         const filteredUtilisateurs = this.utilisateurs.filter((utilisateur) => {
           return +utilisateur['id'] !== +id;

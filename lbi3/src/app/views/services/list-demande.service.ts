@@ -51,20 +51,22 @@ export class ListDemandeService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpDemande.post<Demande>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', demande, httpOptions)
+    return this.httpDemande.post<Demande>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajouterDemandeTick', demande, httpOptions)
       .pipe(
         catchError(this.handleError));
 
   }
 
   getDemandeFromServer(): Observable<Demande[]> {
-    return this.httpDemande.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+    return this.httpDemande.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getDemandeTick').pipe(
       map((res) => {
         this.demandes = res as Demande[];
         return this.demandes;
       }),
       catchError(this.handleError));
   }
+
+  //supprimer demande url:'http://localhost:8080/IntranetLbiWeb/rest/Intranet/deleteDemandeTick'
 
   private handleError(error: HttpErrorResponse) {
     console.log(error);

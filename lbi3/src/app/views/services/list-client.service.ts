@@ -36,13 +36,15 @@ export class ListClientService {
   }
 
   getClientFromServer(): Observable<Client[]> {
-    return this.httpClient.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+    return this.httpClient.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getClient').pipe(
       map((res) => {
         this.clients = res as Client[];
         return this.clients;
       }),
       catchError(this.handleError));
   }
+
+  //maj client url: 'http://localhost:8080/IntranetLbiWeb/rest/Intranet/majClient'
 
   private handleError(error: HttpErrorResponse) {
     console.log(error);

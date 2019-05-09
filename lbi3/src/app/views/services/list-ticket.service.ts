@@ -28,7 +28,7 @@ export class ListTicketService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpTicket.post<Ticket>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', ticket, httpOptions)
+    return this.httpTicket.post<Ticket>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajouterTicket', ticket, httpOptions)
       .pipe(
         catchError(this.handleError));
 
@@ -36,7 +36,7 @@ export class ListTicketService {
 
 
   getTicketFromServer(): Observable<Ticket[]> {
-    return this.httpTicket.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+    return this.httpTicket.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getTicket').pipe(
       map((res) => {
         this.tickets = res as Ticket[];
         return this.tickets;
@@ -44,6 +44,7 @@ export class ListTicketService {
       catchError(this.handleError));
   }
 
+  //ajouter ticket url: 'http://localhost:8080/IntranetLbiWeb/rest/Intranet/majTick'
 
   private handleError(error: HttpErrorResponse) {
     console.log(error);

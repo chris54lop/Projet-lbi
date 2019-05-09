@@ -45,14 +45,14 @@ export class ListMaterielService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpMateriel.post<Type>('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat', type, httpOptions)
+    return this.httpMateriel.post<Type>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajouterTypeMat', type, httpOptions)
       .pipe(
         catchError(this.handleError));
 
   }
 
   getMaterielFromServer(): Observable<Materiel> {
-    return this.httpMateriel.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+    return this.httpMateriel.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getMateriel').pipe(
       map((res) => {
         this.materiels = res as Materiel[];
         return this.materiels;
@@ -61,7 +61,7 @@ export class ListMaterielService {
   }
 
   getTypeFromServer(): Observable<Type> {
-    return this.httpType.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat').pipe(
+    return this.httpType.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getTypeMat').pipe(
       map((res) => {
         this.types = res as Type[];
         return this.types;
