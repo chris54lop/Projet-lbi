@@ -1,14 +1,14 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ListTicketService} from '../services/list-ticket.service';
-import { Ticket} from './ticket';
+import {Ticket} from './ticket';
 import {Utilisateur} from '../utilisateur/utilisateur';
 
 @Component({
   selector: 'app-list-ticket',
   templateUrl: 'list-ticket.component.html'
 })
-export class ListTicketComponent implements OnInit, OnDestroy {
+export class ListTicketComponent implements OnInit {
 
   ticketSubscription: Subscription;
 
@@ -46,8 +46,6 @@ export class ListTicketComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy() {
-    this.ticketSubscription.unsubscribe();
-  }
+
 
 }

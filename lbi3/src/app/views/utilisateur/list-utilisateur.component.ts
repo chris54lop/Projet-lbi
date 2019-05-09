@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ListUtilisateurService} from '../services/list-utilisateur.service';
 import {Utilisateur} from './utilisateur';
 import {Router} from '@angular/router';
@@ -26,10 +26,10 @@ export class ListUtilisateurComponent implements OnInit {
 
   }
 
-  sendTo() {
-    this.router.navigate(['utilisateur/edit-user/:id'],
-      { queryParams : {'utilisateurs' : this.utilisateurs}});
-      console.log(this.utilisateurs);
+  sendTo(utilisateur) {
+    this.router.navigate(['utilisateur/edit-user'],
+      { queryParams : {'utilisateurs' : utilisateur}});
+      console.log(utilisateur);
   }
 
   getUtilisateur(): void {

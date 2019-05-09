@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ListDemandeService} from '../services/list-demande.service';
 import {Demande} from './demande';
@@ -7,7 +7,7 @@ import {Demande} from './demande';
   selector: 'app-list-demande',
   templateUrl: 'list-demande.component.html'
 })
-export class ListDemandeComponent implements OnInit, OnDestroy {
+export class ListDemandeComponent implements OnInit {
 
   demandes: Demande[];
   error = '';
@@ -44,9 +44,6 @@ export class ListDemandeComponent implements OnInit, OnDestroy {
     this.success = '';
     this.error   = '';
   }
-
-  ngOnDestroy() {
-    this.demandeSubscription.unsubscribe();
-  }
+  
 }
 
