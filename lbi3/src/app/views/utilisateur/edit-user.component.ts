@@ -30,6 +30,7 @@ export class EditUserComponent implements OnInit {
 
 
   ngOnInit() {
+   console.log(this.utilisateur);
   }
 
   updateUtilisateur(name7, prenom5, niv, login, password, id) {
