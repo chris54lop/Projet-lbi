@@ -56,6 +56,7 @@ export class ListUtilisateurService {
         'Content-Type':  'application/json',
       })
     };
+    console.log(utilisateur);
     return this.httpUtilisateur.put<Utilisateur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/majUser', utilisateur, httpOptions)
       .pipe(map((res) => {
         const theUtilisateur = this.utilisateurs.find((item) => {
@@ -69,7 +70,6 @@ export class ListUtilisateurService {
           theUtilisateur['password'] = utilisateur['password'];
         }
         return this.utilisateurs;
-        console.log(this.utilisateurs);
       }),
         catchError(this.handleError));
   }
