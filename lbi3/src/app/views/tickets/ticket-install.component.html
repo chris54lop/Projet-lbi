@@ -28,22 +28,16 @@
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="donneur4" style="color: #7AB51C">Donneur d'ordre</label>
                   <div class="col-md-6">
-                    <select id="donneur4" name="donneur4" class="form-control" [(ngModel)]="ticket.donneur4">
-                      <option value="Univ Lorraine">Univ Lorraine</option>
-                      <option value="Mairie Nancy">Mairie Nancy</option>
-                      <option value="Conseil régional">Conseil régional</option>
-                      <option value="Dalkia">Dalkia</option>
+                    <select id="donneur4" name="donneur4" class="form-control" [(ngModel)]="ticket.donneur4" >
+                      <option *ngFor="let donneur of donneurs;">{{donneur.intitinput}}</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="client4" style="color: #7AB51C">Client</label>
                   <div class="col-md-6">
-                    <select id="client4" name="client4" class="form-control" [(ngModel)]="ticket.client4">
-                      <option value="Polytech">Polytech</option>
-                      <option value="Emile Gallé">Emile Gallé</option>
-                      <option value="Dalkia">Dalkia</option>
-                      <option value="Jacques Callot">Jacques Callot</option>
+                    <select id="client4" name="client4" class="form-control" [(ngModel)]="ticket.client4" >
+                      <option *ngFor="let client of clients;">{{client.etabl}}</option>
                     </select>
                   </div>
                 </div>
@@ -66,7 +60,6 @@
                     <input type="text" id="infoinput" name="infoinput" class="form-control" placeholder="(N° salle, étage..)" [(ngModel)]="ticket.infoinput">
                   </div>
                 </div>
-                <!--A remplir manuellement-->
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="telfixe1" style="color: #7AB51C">Téléphone</label>
                   <div class="col-md-6">
@@ -150,12 +143,8 @@
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="typemat5" style="color: #7AB51C">Type de matériel</label>
                   <div class="col-md-6">
-                    <select id="typemat5" name="typemat5" class="form-control" [(ngModel)]="ticket.typemat5">
-                      <option value="TBI">TBI</option>
-                      <option value="Informatique">Informatique</option>
-                      <option value="Imprimante">Imprimante</option>
-                      <option value="Vidéoprojecteur">Vidéoprojecteur</option>
-                      <option value="Ecran interactif">Ecran interactif</option>
+                    <select id="typemat5" name="typemat5" class="form-control" [(ngModel)]="materiel.typemat5" >
+                      <option *ngFor="let type of types;">{{type.typemat2}}</option>
                     </select>
                   </div>
                 </div>

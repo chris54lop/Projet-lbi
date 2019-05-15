@@ -13,6 +13,7 @@ import {ListDemandeService} from '../services/list-demande.service';
 import {DemandeComponent} from './demande.component';
 import { SignaturePadModule} from 'angular2-signaturepad';
 import {TicketComponent} from './ticket.component';
+import {EditTicketComponent} from './edit-ticket.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {TicketComponent} from './ticket.component';
     TicketIntervComponent,
     ListDemandeComponent,
     DemandeComponent,
-    TicketComponent
+    TicketComponent,
+    EditTicketComponent
   ],
   providers: [
     ListTicketService,

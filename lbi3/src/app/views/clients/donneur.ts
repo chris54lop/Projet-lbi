@@ -15,5 +15,6 @@ export class Donneur {
     prenom4input: string,
     email4input: string,
     tel4input: string,
-    fct4input: string) {}
+    fct4input: string,
+    id_donneur?: number) {}
 }

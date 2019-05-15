@@ -47,7 +47,7 @@ const routes: Routes = [
         path: 'list-client/modification',
         component: EditClientComponent,
         data: {
-          title: 'Modification sur le client'
+          title: 'Modification d\'un client'
         },
       },
       {

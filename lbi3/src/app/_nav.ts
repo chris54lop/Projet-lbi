@@ -101,7 +101,7 @@ export const navItems: NavData[] = [
         name: 'Liste des donneurs d\' ordre',
         url: '/clients/list-donneur-ordre',
         icon: 'fa fa-th-list',
-      },
+      }
     ]
   },
   {

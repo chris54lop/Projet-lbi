@@ -16,9 +16,6 @@ export class ListUtilisateurService {
     this.headers.append('Content-Type', 'application/json');
   }
 
-
-
-
   saveUtilisateurToServer(utilisateur: Utilisateur): Observable<Utilisateur> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -39,15 +36,6 @@ export class ListUtilisateurService {
         }),
         catchError(this.handleError));
   }
-
-  /*getUtilisateurById(id: number): Observable<Utilisateur[]> {
-    return this.httpUtilisateur.get('http://localhost:8080/LbiWeb/rest/HelloWorld/ajoutMat' + id ).pipe(
-      map((res) => {
-        this.utilisateurs = res as Utilisateur[];
-        return this.utilisateurs;
-      }),
-      catchError(this.handleError));
-  }*/
 
 
   updateUser(utilisateur: Utilisateur): Observable<Utilisateur> {

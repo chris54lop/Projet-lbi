@@ -1,1 +1,148 @@
-<h4>Works for modif</h4>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header" style="background-color: #009DDE">
+          <div style="text-align: center; color: #FFFFFF"><strong>MODIFIER UN DONNEUR D'ORDRE</strong></div>
+        </div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="intitinput" style="color: #7AB51C">Intitulé</label>
+            <div class="col-md-6">
+              <input type="text" id="intitinput" name="intitinput" class="form-control" placeholder="Intitulé..." [(ngModel)]="donneur.intitinput">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header" style="background-color: #009DDE">
+          <div style="text-align: center; color: #FFFFFF"> <strong>PREMIER CONTACT</strong></div>
+        </div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="name2input" style="color: #7AB51C">Nom</label>
+            <div class="col-md-9">
+              <input type="text" id="name2input" name="name2input" class="form-control" placeholder="Nom.." [(ngModel)]="donneur.name2input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="prenom2input" style="color: #7AB51C">Prénom</label>
+            <div class="col-md-9">
+              <input type="text" id="prenom2input" name="prenom2input" class="form-control" placeholder="Prénom.." [(ngModel)]="donneur.prenom2input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="email2input" style="color: #7AB51C">Mail</label>
+            <div class="col-md-9">
+              <input type="email" id="email2input" name="email2input" class="form-control" placeholder="Mail.." [(ngModel)]="donneur.email2input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="tel2input" style="color: #7AB51C">Téléphone</label>
+            <div class="col-md-9">
+              <input type="tel" id="tel2input" name="tel2input" class="form-control" placeholder="Tel.." [(ngModel)]="donneur.tel2input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="fct2input" style="color: #7AB51C">Fonction</label>
+            <div class="col-md-9">
+              <input type="text" id="fct2input" name="fct2input" class="form-control" placeholder="Fonction.." [(ngModel)]="donneur.fct2input">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div>
+            <div>
+              <button type="submit" class="btn btn-sm btn-primary" (click)="update()" ><i class="fa fa-dot-circle-o"></i> Modifier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header" style="background-color: #009DDE">
+          <div style="text-align: center; color: #FFFFFF"><strong>DEUXIEME CONTACT</strong></div>
+        </div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="name3input" style="color: #7AB51C">Nom</label>
+            <div class="col-md-9">
+              <input type="text" id="name3input" name="name3input" class="form-control" placeholder="Nom.." [(ngModel)]="donneur.name3input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="prenom3input" style="color: #7AB51C">Prénom</label>
+            <div class="col-md-9">
+              <input type="text" id="prenom3input" name="prenom3input" class="form-control" placeholder="Prénom.." [(ngModel)]="donneur.prenom3input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="email3input" style="color: #7AB51C">Mail</label>
+            <div class="col-md-9">
+              <input type="email" id="email3input" name="email3input" class="form-control" placeholder="Mail.." [(ngModel)]="donneur.email3input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="tel3input" style="color: #7AB51C">Téléphone</label>
+            <div class="col-md-9">
+              <input type="tel" id="tel3input" name="tel3input" class="form-control" placeholder="Tel.." [(ngModel)]="donneur.tel3input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="fct3input" style="color: #7AB51C">Fonction</label>
+            <div class="col-md-9">
+              <input type="text" id="fct3input" name="fct3input" class="form-control" placeholder="Fonction.." [(ngModel)]="donneur.fct3input">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--/.row-->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header" style="background-color: #009DDE">
+          <div style="text-align: center; color: #FFFFFF"> <strong>TROISIEME CONTACT</strong></div>
+        </div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="name4input" style="color: #7AB51C">Nom</label>
+            <div class="col-md-9">
+              <input type="text" id="name4input" name="name4input" class="form-control" placeholder="Nom.." [(ngModel)]="donneur.name4input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="prenom4input" style="color: #7AB51C">Prénom</label>
+            <div class="col-md-9">
+              <input type="text" id="prenom4input" name="prenom4input" class="form-control" placeholder="Prénom.." [(ngModel)]="donneur.prenom4input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="email4input" style="color: #7AB51C">Mail</label>
+            <div class="col-md-9">
+              <input type="email" id="email4input" name="email4input" class="form-control" placeholder="Mail.." [(ngModel)]="donneur.email4input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="tel4input" style="color: #7AB51C">Téléphone</label>
+            <div class="col-md-9">
+              <input type="tel" id="tel4input" name="tel4input" class="form-control" placeholder="Tel.." [(ngModel)]="donneur.tel4input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="fct4input" style="color: #7AB51C">Fonction</label>
+            <div class="col-md-9">
+              <input type="text" id="fct4input" name="fct4input" class="form-control" placeholder="Fonction.." [(ngModel)]="donneur.fct4input">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

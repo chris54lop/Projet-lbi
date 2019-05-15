@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 import {ListClientService} from '../services/list-client.service';
 import {Router} from '@angular/router';
 import {Client} from './client';
+import {Donneur} from './donneur';
+import {ListDonneurOrdreService} from '../services/list-donneur-ordre.service';
 
 @Component({
   templateUrl: 'ajout-client.component.html'
@@ -12,36 +14,23 @@ export class AjoutClientComponent implements OnInit {
   error = '';
   success = '';
 
+  donneurs: Donneur[];
+  donneur = new Donneur('', '', '', '', '', '',
+    '', '', '', '', '', '', '',
+    '', '', '');
+
   client = new Client('', '' , '' , '' , '' , '' , '' ,
     '', '', '' , '' , '' , '' , '' );
 
 
   constructor( private listclientService: ListClientService,
+               private listdonneurService: ListDonneurOrdreService,
                private router: Router) {
   }
 
   ngOnInit() {
+    this.getDonneur();
   }
-  /*onSubmit(form: NgForm) {
-
-   const etabl = form.value[ 'etabl' ];
-   const addr = form.value[ 'addr' ];
-   const ville = form.value[ 'ville' ];
-   const donneur1 = form.value[ 'donneur1' ];
-   const nameinput = form.value[ 'nameinput' ];
-   const prenominput = form.value[ 'prenominput' ];
-   const emailinput = form.value[ 'emailinput' ];
-   const telinput = form.value [ 'telinput' ];
-   const fctinput = form.value[ 'fctinput' ];
-   const name1input = form.value[ 'name1input' ];
-   const prenom1input = form.value[ 'prenom1input' ];
-   const email1input = form.value[ 'email1input' ];
-   const tel1input = form.value [ 'tel1input' ];
-   const fct1input = form.value[ 'fct1input' ];
-   this.listclientService.addClient(etabl, addr, ville, donneur1, nameinput, prenominput, emailinput, telinput,
-     fctinput, name1input, prenom1input, email1input, tel1input, fct1input);
-   this.router.navigate(['/clients/list-client']);
-  }*/
 
   onSubmit() {
 
@@ -62,6 +51,18 @@ export class AjoutClientComponent implements OnInit {
         },
         (err) => this.error = err
       );
+  }
+
+  getDonneur(): void {
+    this.listdonneurService.getDonneurFromServer().subscribe(
+      (res: Donneur[]) => {
+        this.donneurs = res;
+        console.log(res);
+      },
+      (err) => {
+        this.error = err;
+      }
+    );
   }
 
   private resetErrors() {

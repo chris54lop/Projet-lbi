@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
 import {ListClientService} from '../services/list-client.service';
 import {Client} from './client';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -14,18 +14,11 @@ export class ListClientComponent implements OnInit {
   success = '';
   client = new Client( '', '', '', '', '', '', '', '',
     '', '', '', '', '', '');
-  clientSubscription: Subscription;
 
-  constructor( private listclientService: ListClientService) { }
+  constructor( private listclientService: ListClientService,
+               private router: Router) { }
 
   ngOnInit() {
-    /*this.clientSubscription =
-      this.listclientService.clientsSubject.subscribe(
-        (clients: any[]) => {
-          this.clients = clients;
-        }
-      );
-    this.listclientService.emitClientSubject();*/
     this.getClient();
   }
 
@@ -39,6 +32,12 @@ export class ListClientComponent implements OnInit {
         this.error = err;
       }
     );
+  }
+
+  sendTo(client: Client) {
+    this.router.navigate(['client/edit-client'],
+      { queryParams : {...client}});
+    console.log(client);
   }
 
 

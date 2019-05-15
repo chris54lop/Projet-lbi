@@ -1,17 +1,33 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {NgForm} from '@angular/forms';
 import {ListTicketService} from '../services/list-ticket.service';
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import {Subscription} from 'rxjs';
 import {Ticket} from './ticket';
+import {Type} from '../materiels/type';
+import {ListMaterielService} from '../services/list-materiel.service';
+import {Client} from '../clients/client';
+import {ListClientService} from '../services/list-client.service';
+import {Donneur} from '../clients/donneur';
+import {ListDonneurOrdreService} from '../services/list-donneur-ordre.service';
 
 
 @Component({
   templateUrl: 'ticket-install.component.html'
 })
 export class TicketInstallComponent implements OnInit {
+
+  types: Type[];
+  type = new Type('');
+
+  clients: Client[];
+  client = new Client( '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '');
+
+  donneurs: Donneur[];
+  donneur = new Donneur('', '', '', '', '', '',
+    '', '', '', '', '', '', '',
+    '', '', '');
 
   tickets: Ticket[];
   error = '';
@@ -22,26 +38,48 @@ export class TicketInstallComponent implements OnInit {
     '', '' , '' , '' , '' , '' , 'Installation' );
 
 
-  date1: number;
-  client: string;
-  radios1: number;
-  private subscription: Subscription;
-
   constructor(private listticketService: ListTicketService,
               private router: Router,
-              private route: ActivatedRoute) {
-    this.subscription = this.route.queryParams.subscribe(
-      params => {
-        this.radios1 = params['demandetypemat3'];
-        this.date1 = params['demandedateappel1'];
-        this.client = params['demandeclient'];
+              private route: ActivatedRoute,
+              private listmaterielService: ListMaterielService,
+              private listdonneurService: ListDonneurOrdreService,
+              private listclientService: ListClientService) {
+  }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      this.ticket.dateappel3 = params.dateappel3;
+      this.ticket.client4 = params.client4;
+      this.ticket.typemat5 = params.typemat5;
+    })
+    this.getType();
+    this.getClient();
+    this.getDonneur();
+  }
+
+  getDonneur(): void {
+    this.listdonneurService.getDonneurFromServer().subscribe(
+      (res: Donneur[]) => {
+        this.donneurs = res;
+        console.log(res);
+      },
+      (err) => {
+        this.error = err;
       }
     );
   }
 
-
-
-  ngOnInit() {}
+  getType(): void {
+    this.listmaterielService.getTypeFromServer().subscribe(
+      (res: Type[]) => {
+        this.types = res;
+        console.log(res);
+      },
+      (err) => {
+        this.error = err;
+      }
+    );
+  }
 
 
   onSubmit() {
@@ -63,6 +101,18 @@ export class TicketInstallComponent implements OnInit {
         },
         (err) => this.error = err
       );
+  }
+
+  getClient(): void {
+    this.listclientService.getClientFromServer().subscribe(
+      (res: Client[]) => {
+        this.clients = res;
+        console.log(res);
+      },
+      (err) => {
+        this.error = err;
+      }
+    );
   }
 
   private resetErrors() {

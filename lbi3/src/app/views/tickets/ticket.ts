@@ -30,6 +30,7 @@ export class Ticket {
     harrive: string,
     hdep: string,
     rq: string,
-    fiche: string
+    fiche: string,
+    id_ticket?: number
     ) {}
 }

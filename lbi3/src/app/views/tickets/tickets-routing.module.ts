@@ -5,7 +5,7 @@ import {ListTicketComponent} from './list-ticket.component';
 import {TicketInstallComponent} from './ticket-install.component';
 import {TicketIntervComponent} from './ticket-interv.component';
 import {ListDemandeComponent} from './list-demande.component';
-import { AuthGuard } from '../services/auth-guard.service';
+import {EditTicketComponent} from './edit-ticket.component';
 
 
 const routes: Routes = [
@@ -49,6 +49,13 @@ const routes: Routes = [
         component: TicketIntervComponent,
         data: {
           title: 'Tickets d\' intervention'
+        }
+      },
+      {
+        path: 'edit-ticket',
+        component: EditTicketComponent,
+        data: {
+          title: 'Modification ticket'
         }
       }
     ]

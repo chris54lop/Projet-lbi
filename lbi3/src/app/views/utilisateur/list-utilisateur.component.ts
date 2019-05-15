@@ -3,7 +3,6 @@ import {ListUtilisateurService} from '../services/list-utilisateur.service';
 import {Utilisateur} from './utilisateur';
 import {Router} from '@angular/router';
 
-
 @Component({
   selector: 'app-list-utilisateur',
   templateUrl: 'list-utilisateur.component.html'
@@ -23,7 +22,6 @@ export class ListUtilisateurComponent implements OnInit {
 
   ngOnInit() {
     this.getUtilisateur();
-
   }
 
   sendTo(utilisateur: Utilisateur) {
@@ -47,7 +45,6 @@ export class ListUtilisateurComponent implements OnInit {
 
   deleteUser(id_user) {
     this.resetErrors();
-
     this.listutilisateurService.delete(+id_user)
       .subscribe(
         (res: Utilisateur[]) => {

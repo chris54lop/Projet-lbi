@@ -3,6 +3,7 @@ import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {Demande} from '../tickets/demande';
+import {Utilisateur} from '../utilisateur/utilisateur';
 
 
 @Injectable ()
@@ -15,35 +16,6 @@ export class ListDemandeService {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
   }
-  demandesSubject = new Subject<any[]>();
-
-
-
-  /*emitDemandeSubject() {
-    this.demandesSubject.next(this.demandes.slice());
-  }
-
-  addDemande( typefiche: string, dateappel1: string, recep: string, client: string, typemat3: string,
-              descri: string) {
-    const demandeObject = {
-      typefiche: '',
-      dateappel1: '',
-      recep: '',
-      client: '',
-      typemat3: '',
-      descri: '',
-
-    };
-    demandeObject.typefiche = typefiche;
-    demandeObject.dateappel1 = dateappel1;
-    demandeObject.recep = recep;
-    demandeObject.client = client;
-    demandeObject.typemat3 = typemat3;
-    demandeObject.descri = descri;
-    this.demandes.push(demandeObject);
-
-
-  }*/
 
   saveDemandeToServer(demande: Demande): Observable<Demande> {
     const httpOptions = {
@@ -54,7 +26,6 @@ export class ListDemandeService {
     return this.httpDemande.post<Demande>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/ajouterDemandeTick', demande, httpOptions)
       .pipe(
         catchError(this.handleError));
-
   }
 
   getDemandeFromServer(): Observable<Demande[]> {

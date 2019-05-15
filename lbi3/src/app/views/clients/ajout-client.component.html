@@ -28,11 +28,8 @@
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="donneur1" style="color: #7AB51C">Donneur d'ordre</label>
             <div class="col-md-6">
-              <select id="donneur1" name="donneur1" class="form-control" [(ngModel)]="client.donneur1">
-                <option value="Univ Lorraine">Univ Lorraine</option>
-                <option value="Mairie Nancy">Mairie Nancy</option>
-                <option value="Conseil régional">Conseil régional</option>
-                <option value="Dalkia">Dalkia</option>
+              <select id="donneur1" name="donneur1" class="form-control" [(ngModel)]="client.donneur1" >
+                <option *ngFor="let donneur of donneurs;">{{donneur.intitinput}}</option>
               </select>
             </div>
           </div>

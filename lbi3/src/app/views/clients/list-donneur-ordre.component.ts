@@ -1,8 +1,7 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
 import { ListDonneurOrdreService} from '../services/list-donneur-ordre.service';
 import {Donneur} from './donneur';
-import {Utilisateur} from '../utilisateur/utilisateur';
+import {Router} from '@angular/router';
 
 @Component({
   templateUrl: 'list-donneur-ordre.component.html'
@@ -16,7 +15,8 @@ export class ListDonneurOrdreComponent implements OnInit {
     '', '', '', '', '', '', '',
     '', '', '');
 
-  constructor( private listdonneurService: ListDonneurOrdreService) { }
+  constructor( private listdonneurService: ListDonneurOrdreService,
+               private router: Router) { }
 
   ngOnInit() {
     this.getDonneur();
@@ -32,7 +32,12 @@ export class ListDonneurOrdreComponent implements OnInit {
         this.error = err;
       }
     );
+  }
 
+  sendTo(donneur: Donneur) {
+    this.router.navigate(['donneur/edit-donneur-ordre'],
+      { queryParams : {...donneur}});
+    console.log(donneur);
   }
 
 }

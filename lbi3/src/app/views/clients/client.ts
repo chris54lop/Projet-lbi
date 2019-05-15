@@ -14,5 +14,6 @@ export class Client {
     email1input: string,
     tel1input: string,
     fct1input: string,
+    id_client?: number
     ) {}
 }

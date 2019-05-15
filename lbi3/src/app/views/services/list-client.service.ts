@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, Subject, throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {Client} from '../clients/client';
@@ -17,10 +17,6 @@ export class ListClientService {
     this.headers.append('Content-Type', 'application/json');
   }
 
-  clientsSubject = new Subject<any[]>();
-  emitClientSubject() {
-    this.clientsSubject.next(this.clients.slice());
-  }
 
   saveClientToServer(client: Client): Observable<Client> {
     const httpOptions = {
@@ -43,12 +39,42 @@ export class ListClientService {
       catchError(this.handleError));
   }
 
+  updateClient(client: Client): Observable<Client> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+      })
+    };
+    return this.httpClient.put<Client>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/majClient', client, httpOptions)
+      .pipe(map((res) => {
+          const theClient = this.clients.find((item) => {
+            return +item['id_client'] === +client['id_client'];
+          });
+          if (theClient) {
+            theClient['etabl'] = client['etabl'];
+            theClient['addr'] = client['addr'];
+            theClient['ville'] = client['ville'];
+            theClient['donneur1'] = client['donneur1'];
+            theClient['nameinput'] = client['nameinput'];
+            theClient['prenominput'] = client['prenominput'];
+            theClient['emailinput'] = client['emailinput'];
+            theClient['telinput'] = client['telinput'];
+            theClient['fctinput'] = client['fctinput'];
+            theClient['name1input'] = client['name1input'];
+            theClient['prenom1input'] = client['prenom1input'];
+            theClient['email1input'] = client['email1input'];
+            theClient['tel1input'] = client['tel1input'];
+            theClient['fct1input'] = client['fctinput'];
+          }
+          return this.clients;
+        }),
+        catchError(this.handleError));
+  }
+
   //maj client url: 'http://localhost:8080/IntranetLbiWeb/rest/Intranet/majClient'
 
   private handleError(error: HttpErrorResponse) {
     console.log(error);
-
-    // return an observable with a user friendly message
     return throwError('Error! something went wrong.');
   }
 }

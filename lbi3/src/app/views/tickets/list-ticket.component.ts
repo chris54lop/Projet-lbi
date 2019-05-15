@@ -3,6 +3,7 @@ import {Subscription} from 'rxjs';
 import {ListTicketService} from '../services/list-ticket.service';
 import {Ticket} from './ticket';
 import {Utilisateur} from '../utilisateur/utilisateur';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-ticket',
@@ -10,9 +11,8 @@ import {Utilisateur} from '../utilisateur/utilisateur';
 })
 export class ListTicketComponent implements OnInit {
 
-  ticketSubscription: Subscription;
-
-  constructor( private listticketService: ListTicketService ) { }
+  constructor( private listticketService: ListTicketService,
+               private router: Router) { }
 
   tickets: Ticket[];
   error = '';
@@ -25,13 +25,6 @@ export class ListTicketComponent implements OnInit {
 
   ngOnInit() {
     this.getTicket();
-    /*this.ticketSubscription =
-      this.listticketService.ticketsSubject.subscribe(
-        (tickets: any[]) => {
-          this.tickets = tickets;
-        }
-      );
-    this.listticketService.emitTicketSubject();*/
   }
 
   getTicket(): void {
@@ -46,6 +39,11 @@ export class ListTicketComponent implements OnInit {
     );
   }
 
+  sendTo(ticket: Ticket) {
+    this.router.navigate(['ticket/edit-ticket'],
+      { queryParams : {...ticket}});
+    console.log(ticket);
+  }
 
 
 }
