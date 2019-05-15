@@ -56,10 +56,10 @@ export class ListUtilisateurService {
         'Content-Type':  'application/json',
       })
     };
-    return this.httpUtilisateur.put<Utilisateur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/majUser', httpOptions)
+    return this.httpUtilisateur.put<Utilisateur>('http://localhost:8080/IntranetLbiWeb/rest/Intranet/majUser', utilisateur, httpOptions)
       .pipe(map((res) => {
         const theUtilisateur = this.utilisateurs.find((item) => {
-          return +item['id'] === +utilisateur['id'];
+          return +item['id_user'] === +utilisateur['id_user'];
         });
         if (theUtilisateur) {
           theUtilisateur['name7'] = utilisateur['name7'];
@@ -69,17 +69,18 @@ export class ListUtilisateurService {
           theUtilisateur['password'] = utilisateur['password'];
         }
         return this.utilisateurs;
+        console.log(this.utilisateurs);
       }),
         catchError(this.handleError));
   }
 
-  delete(id: number): Observable<Utilisateur[]> {
+  delete(id_user: number): Observable<Utilisateur[]> {
     const params = new HttpParams()
-      .set('id', id.toString());
+      .set('id_user', id_user.toString());
     return this.httpUtilisateur.delete('http://localhost:8080/IntranetLbiWeb/rest/Intranet/deleteUser', { params: params })
       .pipe(map(res => {
         const filteredUtilisateurs = this.utilisateurs.filter((utilisateur) => {
-          return +utilisateur['id'] !== +id;
+          return +utilisateur['id_user'] !== +id_user;
         });
         return this.utilisateurs = filteredUtilisateurs;
       }),

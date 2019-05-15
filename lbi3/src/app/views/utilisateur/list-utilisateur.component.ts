@@ -26,9 +26,9 @@ export class ListUtilisateurComponent implements OnInit {
 
   }
 
-  sendTo(utilisateur) {
+  sendTo(utilisateur: Utilisateur) {
     this.router.navigate(['utilisateur/edit-user'],
-      { queryParams : {'utilisateurs' : utilisateur}});
+      { queryParams : {...utilisateur}});
       console.log(utilisateur);
   }
 
@@ -45,10 +45,10 @@ export class ListUtilisateurComponent implements OnInit {
 
   }
 
-  deleteUser(id) {
+  deleteUser(id_user) {
     this.resetErrors();
 
-    this.listutilisateurService.delete(+id)
+    this.listutilisateurService.delete(+id_user)
       .subscribe(
         (res: Utilisateur[]) => {
           this.utilisateurs = res;
