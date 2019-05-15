@@ -14,7 +14,7 @@ export class Ticket {
     technicien6: string,
     technicien7: string,
     technicien8: string,
-    dateappe3: string,
+    dateappel3: string,
     hinter: string,
     dinterv: string,
     typemat5: string,

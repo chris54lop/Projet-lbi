@@ -18,7 +18,6 @@ export class ListClientService {
   }
 
   clientsSubject = new Subject<any[]>();
-
   emitClientSubject() {
     this.clientsSubject.next(this.clients.slice());
   }

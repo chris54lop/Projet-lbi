@@ -1,9 +1,9 @@
 export class Demande {
   constructor(
     typefiche: string,
-    dateappel1: string,
+    dateappel3: string,
     recep: string,
-    client: string,
-    typemat3: string,
+    client4: string,
+    typemat5: string,
     descri: string ) {}
 }

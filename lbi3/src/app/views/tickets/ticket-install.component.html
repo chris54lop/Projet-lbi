@@ -1,4 +1,5 @@
 <form (ngSubmit)="onSubmit(b)" #b="ngForm">
+  <div id="content" #content>
   <div class="row">
     <div class="col-md-12">
       <div class="card">
@@ -309,10 +310,10 @@
         </div>
         <div class="card-footer">
           <button type="submit" class="btn btn-sm btn-primary" [disabled]="b.invalid"><i class="fa fa-dot-circle-o"></i> Enregistrer</button>
-          <button type="button" class="btn btn-sm btn-danger" (click)="generatePDF()"><i class="fa fa-dot-circle-o"></i> PDF</button>
-
+          <button type="button" class="btn btn-sm btn-danger" value="cap" (click)="generatePDF()"><i class="fa fa-file-pdf-o"> Export to pdf</i></button>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </form>
