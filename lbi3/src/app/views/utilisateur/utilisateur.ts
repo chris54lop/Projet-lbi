@@ -5,5 +5,6 @@ export class Utilisateur {
     niv: string,
     login: string,
     password: string,
-    id?:   number) {}
+    id?:   number,
+    token?: string) {}
 }

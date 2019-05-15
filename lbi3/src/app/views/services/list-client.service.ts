@@ -3,7 +3,7 @@ import {Observable, Subject, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {Client} from '../clients/client';
-import {Utilisateur} from '../utilisateur/utilisateur';
+
 
 
 @Injectable ()
