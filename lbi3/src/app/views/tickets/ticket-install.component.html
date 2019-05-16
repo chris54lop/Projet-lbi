@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit(b)" #b="ngForm">
-  <div id="content" #content>
+  <div id="content" #content> <!--Définit tout le contenu à prendre en cpature pour créer un fichier PDF -->
   <div class="row">
     <div class="col-md-12">
       <div class="card">
@@ -143,7 +143,7 @@
                 <div class="form-group row">
                   <label class="col-md-3 col-form-label" for="typemat5" style="color: #7AB51C">Type de matériel</label>
                   <div class="col-md-6">
-                    <select id="typemat5" name="typemat5" class="form-control" [(ngModel)]="materiel.typemat5" >
+                    <select id="typemat5" name="typemat5" class="form-control" [(ngModel)]="ticket.typemat5" >
                       <option *ngFor="let type of types;">{{type.typemat2}}</option>
                     </select>
                   </div>

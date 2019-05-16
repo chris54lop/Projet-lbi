@@ -7,8 +7,7 @@ import {ListMaterielComponent} from './list-materiel.component';
 import {ListMaterielService} from '../services/list-materiel.service';
 import {FormsModule} from '@angular/forms';
 import {AjoutTypeComponent} from './ajout-type.component';
-import {MaterielComponent} from './materiel.component';
-import {HttpClient, HttpHandler} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -22,7 +21,6 @@ import {HttpClient, HttpHandler} from '@angular/common/http';
     AjoutMaterielComponent,
     ListMaterielComponent,
     AjoutTypeComponent,
-    MaterielComponent
   ],
   providers: [
     ListMaterielService,

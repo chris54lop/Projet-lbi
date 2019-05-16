@@ -13,10 +13,6 @@ export interface NavData {
 
 export const navItems: NavData[] = [
 
-
-
-
-
   {
     name: 'Tableau de bord',
     url: '/dashboard',

@@ -15,7 +15,7 @@ export class ListTicketService {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
   }
-
+  // Fonction POST
   saveTicketToServer(ticket: Ticket): Observable<Ticket> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -28,7 +28,7 @@ export class ListTicketService {
 
   }
 
-
+  // Fonction GET
   getTicketFromServer(): Observable<Ticket[]> {
     return this.httpTicket.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getTicket').pipe(
       map((res) => {
@@ -37,7 +37,7 @@ export class ListTicketService {
       }),
       catchError(this.handleError));
   }
-
+  // Fonction PUT
   updateTicket(ticket: Ticket): Observable<Ticket> {
     const httpOptions = {
       headers: new HttpHeaders({

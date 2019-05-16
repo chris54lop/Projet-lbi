@@ -16,7 +16,7 @@ export class ListDemandeService {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
   }
-
+  // Fonction POST
   saveDemandeToServer(demande: Demande): Observable<Demande> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -27,7 +27,7 @@ export class ListDemandeService {
       .pipe(
         catchError(this.handleError));
   }
-
+  // Fonction GET
   getDemandeFromServer(): Observable<Demande[]> {
     return this.httpDemande.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getDemandeTick').pipe(
       map((res) => {
@@ -36,7 +36,7 @@ export class ListDemandeService {
       }),
       catchError(this.handleError));
   }
-
+  // Fonction DELETE à rajouter
   //supprimer demande url:'http://localhost:8080/IntranetLbiWeb/rest/Intranet/deleteDemandeTick'
 
   private handleError(error: HttpErrorResponse) {

@@ -35,8 +35,8 @@ export class ListDonneurOrdreComponent implements OnInit {
   }
 
   sendTo(donneur: Donneur) {
-    this.router.navigate(['donneur/edit-donneur-ordre'],
-      { queryParams : {...donneur}});
+    this.router.navigate(['donneur/edit-donneur-ordre'], // Navigue vers l'URL
+      { queryParams : {...donneur}}); // avec ces paramètres (ici tout les variables de client)
     console.log(donneur);
   }
 

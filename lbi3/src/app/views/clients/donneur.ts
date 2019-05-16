@@ -1,4 +1,4 @@
-export class Donneur {
+export class Donneur { // Définition d'un modèle pour donneur d'ordre
   constructor(
     intitinput: string,
     name2input: string,

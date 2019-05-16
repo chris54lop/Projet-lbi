@@ -23,11 +23,11 @@ export class ListTechnicienComponent implements OnInit {
   }
 
   onAjout() {
-    this.router.navigate(['/techniciens/ajout-technicien']);
+    this.router.navigate(['/techniciens/ajout-technicien']); // Nous ramène vers la page avec le formulaire pour ajouter un technicien
   }
 
   getTechnicien(): void {
-    this.listtechnicienService.getTechnicienFromServer().subscribe(
+    this.listtechnicienService.getTechnicienFromServer().subscribe( // Fonction Get défini dans le service list-technicien
       (res: Technicien[]) => {
         this.techniciens = res;
         console.log(res);

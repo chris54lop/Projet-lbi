@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Observable, Subject, throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {Donneur} from '../clients/donneur';
-import {Utilisateur} from '../utilisateur/utilisateur';
 
 @Injectable ()
 export class ListDonneurOrdreService {
@@ -15,15 +14,7 @@ export class ListDonneurOrdreService {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
   }
-
-
-
-  donneursSubject = new Subject<any[]>();
-
-  emitDonneurSubject() {
-    this.donneursSubject.next(this.donneurs.slice());
-  }
-
+  // Fonction POST
   saveDonneurToServer(donneur: Donneur): Observable<Donneur> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -35,7 +26,7 @@ export class ListDonneurOrdreService {
         catchError(this.handleError));
 
   }
-
+  // Fonction GET
   getDonneurFromServer(): Observable<Donneur[]> {
     return this.httpDonneur.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getDonneur').pipe(
       map((res) => {
@@ -44,7 +35,7 @@ export class ListDonneurOrdreService {
       }),
       catchError(this.handleError));
   }
-
+  // Fonction PUT
   updateDonneur(donneur: Donneur): Observable<Donneur> {
     const httpOptions = {
       headers: new HttpHeaders({

@@ -1,4 +1,4 @@
-export class Client {
+export class Client { // Définition d'un modèle pour client
   constructor(
     etabl: string,
     addr: string,

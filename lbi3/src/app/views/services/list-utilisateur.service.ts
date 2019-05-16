@@ -15,7 +15,7 @@ export class ListUtilisateurService {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
   }
-
+  // Fonction POST
   saveUtilisateurToServer(utilisateur: Utilisateur): Observable<Utilisateur> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -27,7 +27,7 @@ export class ListUtilisateurService {
         catchError(this.handleError));
 
   }
-
+  // Fonction GET
   getUtilisateurFromServer(): Observable<Utilisateur[]> {
     return this.httpUtilisateur.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getUser').pipe(
       map((res) => {
@@ -37,7 +37,7 @@ export class ListUtilisateurService {
         catchError(this.handleError));
   }
 
-
+  // Fonction PUT
   updateUser(utilisateur: Utilisateur): Observable<Utilisateur> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -61,7 +61,7 @@ export class ListUtilisateurService {
       }),
         catchError(this.handleError));
   }
-
+// Fonction DELETE (pas encore testé)
   delete(id_user: number): Observable<Utilisateur[]> {
     const params = new HttpParams()
       .set('id_user', id_user.toString());

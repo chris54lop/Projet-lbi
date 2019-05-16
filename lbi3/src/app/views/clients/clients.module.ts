@@ -11,8 +11,6 @@ import {EditDonneurOrdreComponent} from './edit-donneur-ordre.component';
 import {ListClientService} from '../services/list-client.service';
 import {FormsModule} from '@angular/forms';
 import {ListDonneurOrdreService} from '../services/list-donneur-ordre.service';
-import {ClientComponent} from './client.component';
-import {DonneurComponent} from './donneur.component';
 
 
 @NgModule({
@@ -27,9 +25,7 @@ import {DonneurComponent} from './donneur.component';
     ListClientComponent,
     ListDonneurOrdreComponent,
     EditClientComponent,
-    EditDonneurOrdreComponent,
-    ClientComponent,
-    DonneurComponent
+    EditDonneurOrdreComponent
 
   ],
   providers: [

@@ -121,7 +121,7 @@ export class TicketInstallComponent implements OnInit {
   }
 
 
-  public generatePDF() {
+  public generatePDF() { // Fonction generant un fichier PDF (ATTENTION : cette fonction prend une capture de la page pour ensuite convertir en pdf
     const data = document.getElementById('content');
     html2canvas(data).then(canvas => {
       const imgWidth = 210;

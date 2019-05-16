@@ -16,12 +16,12 @@ export class LoginComponent implements OnInit {
     this.authStatus = this.authService.isAuth;
   }
 
-  onClick() {
-    this.authService.signIn().then(
+  onClick() { // fonction permettant de se connecter (simulation de connexion)
+    this.authService.signIn().then( // signIn définit dans le service AuthService
       () => {
         console.log('Sign in successful!');
         this.authStatus = this.authService.isAuth;
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['dashboard']); // ramène l'utilisateur vers le tableau de bord
       }
     );
   }

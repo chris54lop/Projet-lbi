@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
 import {ListDemandeService} from '../services/list-demande.service';
 import {Demande} from './demande';
 import {Router} from '@angular/router';
@@ -21,7 +20,7 @@ export class ListDemandeComponent implements OnInit {
   ngOnInit() {
     this.getDemande();
   }
-
+  // En fonction du ticket (Installation ou Intervention) cela nous ramène vers la page avec le formulaire de ticket prérempli
   sendTo(demande: Demande) {
     if(demande.typefiche === 'Installation') {
     this.router.navigate(['ticket/ticket-install'],

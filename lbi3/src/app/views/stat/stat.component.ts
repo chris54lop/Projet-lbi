@@ -8,6 +8,8 @@ import {ExcelService} from '../services/excel.service';
 })
 export class StatComponent {
 
+  //Modèle pour pouvoir exporter en excel
+
   name = 'Angular 6';
   data: any = [{
     eid: 'e101',
@@ -28,7 +30,7 @@ export class StatComponent {
 
   constructor(private excelService: ExcelService) {
   }
-  exportAsXLSX(): void {
+  exportAsXLSX(): void { // Fonction lié à un bouton permettant d'exporter en fichier Excel
     this.excelService.exportAsExcelFile(this.data, 'Résultats');
   }
 

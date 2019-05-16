@@ -24,7 +24,7 @@ export class EditDonneurOrdreComponent implements OnInit {
 
 
   ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
+    this.route.queryParams.subscribe((params) => { // Récupère les variables qui ont été envoyé dans params
       this.donneur.intitinput = params.intitinput;
       this.donneur.name2input = params.name2input;
       this.donneur.prenom2input = params.prenom2input;
@@ -44,7 +44,7 @@ export class EditDonneurOrdreComponent implements OnInit {
     })
   }
 
-  update() {
+  update() { // Modifie les données
     this.resetErrors();
     this.listdonneurService.updateDonneur(this.donneur)
       .subscribe(

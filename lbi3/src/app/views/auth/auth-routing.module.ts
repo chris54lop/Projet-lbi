@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: 'Dashboard',
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard], // empêche l'utilisateur d'accéder à la page
         component: DashboardComponent,
         data: {
           title: 'Dashboard'

@@ -10,10 +10,11 @@ import {ListTicketService} from '../services/list-ticket.service';
 import {FormsModule} from '@angular/forms';
 import {ListDemandeComponent} from './list-demande.component';
 import {ListDemandeService} from '../services/list-demande.service';
-import {DemandeComponent} from './demande.component';
 import { SignaturePadModule} from 'angular2-signaturepad';
-import {TicketComponent} from './ticket.component';
 import {EditTicketComponent} from './edit-ticket.component';
+import {ListMaterielService} from '../services/list-materiel.service';
+import {ListClientService} from '../services/list-client.service';
+import {ListDonneurOrdreService} from '../services/list-donneur-ordre.service';
 
 
 @NgModule({
@@ -29,13 +30,14 @@ import {EditTicketComponent} from './edit-ticket.component';
     TicketInstallComponent,
     TicketIntervComponent,
     ListDemandeComponent,
-    DemandeComponent,
-    TicketComponent,
     EditTicketComponent
   ],
   providers: [
     ListTicketService,
-    ListDemandeService
+    ListDemandeService,
+    ListMaterielService,
+    ListClientService,
+    ListDonneurOrdreService
   ]
 })
 export class TicketsModule { }

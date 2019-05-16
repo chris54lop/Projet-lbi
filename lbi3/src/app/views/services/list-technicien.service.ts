@@ -14,6 +14,8 @@ export class ListTechnicienService {
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json');
   }
+
+  // Fonction POST
   saveTechnicienToServer(technicien: Technicien): Observable<Technicien> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -25,6 +27,7 @@ export class ListTechnicienService {
         catchError(this.handleError));
   }
 
+  // Fonction GET
   getTechnicienFromServer(): Observable<Technicien[]> {
     return this.httpTechnicien.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getTech').pipe(
       map((res) => {

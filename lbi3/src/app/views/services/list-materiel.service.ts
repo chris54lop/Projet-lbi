@@ -21,13 +21,7 @@ export class ListMaterielService {
   }
 
 
-  materielsSubject = new Subject<any[]>();
-
-  emitMaterielSubject() {
-    this.materielsSubject.next(this.materiels.slice());
-  }
-
-
+  // Fonction POST
   saveMaterielToServer(materiel: Materiel): Observable<Materiel> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -39,6 +33,7 @@ export class ListMaterielService {
         catchError(this.handleError));
 
   }
+  // Fonction POST
   saveTypeToServer(type: Type): Observable<Type> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -51,6 +46,7 @@ export class ListMaterielService {
 
   }
 
+  // Fonction GET
   getMaterielFromServer(): Observable<Materiel> {
     return this.httpMateriel.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getMateriel').pipe(
       map((res) => {
@@ -59,7 +55,7 @@ export class ListMaterielService {
       }),
       catchError(this.handleError));
   }
-
+  // Fonction GET
   getTypeFromServer(): Observable<Type> {
     return this.httpType.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getTypeMat').pipe(
       map((res) => {

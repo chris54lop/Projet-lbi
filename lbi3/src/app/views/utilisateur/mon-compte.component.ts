@@ -9,7 +9,8 @@ import {ListUtilisateurService} from '../services/list-utilisateur.service';
 })
 export class MonCompteComponent implements OnInit {
 
-
+  // Composant permettant à l'uitlisateur d'accéder à son compte et ainsi a redéfinir son mot de passe
+  // Pas encore réalisé
 
   constructor( private listutilisateurService: ListUtilisateurService) { }
 

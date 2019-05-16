@@ -23,7 +23,7 @@ export class EditClientComponent implements OnInit {
 
 
   ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
+    this.route.queryParams.subscribe((params) => { // Récupère les variables qui ont été envoyés dans params (lien avec router.navigate)
       this.client.etabl = params.etabl;
       this.client.addr = params.addr;
       this.client.ville = params.ville;
@@ -41,21 +41,21 @@ export class EditClientComponent implements OnInit {
     })
   }
 
-  update() {
+  update() { // Modifie les données
     this.resetErrors();
-    this.listclientService.updateClient(this.client)
+    this.listclientService.updateClient(this.client) // via la fonction put définie dans le service
       .subscribe(
         (res) => {
           this.success = 'Updated successfully';
         },
         (err) => this.error = err
       );
-    console.log(this.client);
+    console.log(this.client); // affichage dans la console
   }
 
   private resetErrors() {
     this.success = '';
     this.error   = '';
   }
-
+ 
 }

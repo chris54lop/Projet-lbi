@@ -8,7 +8,7 @@ import {ListDonneurOrdreComponent} from './list-donneur-ordre.component';
 import {EditClientComponent} from './edit-client.component';
 import {EditDonneurOrdreComponent} from './edit-donneur-ordre.component';
 
-const routes: Routes = [
+const routes: Routes = [ //Création des routes
   {
     path: '',
     data: {

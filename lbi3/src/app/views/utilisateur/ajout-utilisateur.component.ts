@@ -18,43 +18,10 @@ export class AjoutUtilisateurComponent {
   utilisateur = new Utilisateur('', '' , '', '', '');
 
 
-  name = 'Angular 6';
-  data: any = [{
-    eid: 'e101',
-    ename: 'ravi',
-    esal: 1000
-  },
-    {
-      eid: 'e102',
-      ename: 'ram',
-      esal: 2000
-    },
-    {
-      eid: 'e103',
-      ename: 'rajesh',
-      esal: 3000
-    }];
-
-  name7: string;
-  prenom5: string;
-  niv: string;
-  password: string;
-
   constructor(private router: Router, private excelService: ExcelService,
               private listutilisateur: ListUtilisateurService) {
   }
-  exportAsXLSX(): void {
-    this.excelService.exportAsExcelFile(this.data, 'sample');
-  }
 
-  /*onSubmit(form: NgForm) {
-    console.log(form.value);
-    const name7 = form.value['name7'];
-    const prenom5 = form.value['prenom5'];
-    const niv = form.value['niv'];
-    const password = form.value['password'];
-    this.router.navigate(['/utilisateur/list-utilisateur']);
-  }*/
 
   onSubmit() {
 

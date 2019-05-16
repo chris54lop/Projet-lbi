@@ -1,5 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
 import {ListMaterielService} from '../services/list-materiel.service';
 import {Materiel} from './materiel';
 
@@ -7,28 +6,20 @@ import {Materiel} from './materiel';
   selector: 'app-list-materiel',
   templateUrl: 'list-materiel.component.html'
 })
-export class ListMaterielComponent implements OnInit, OnDestroy {
+export class ListMaterielComponent implements OnInit {
 
-  materielSubscription: Subscription;
-
-  constructor( private listmaterielService: ListMaterielService) { }
+  constructor(private listmaterielService: ListMaterielService) {
+  }
 
   materiels: Materiel[];
   error = '';
   success = '';
 
-  materiel = new Materiel('', '' , '' , '' , '' , '' , '' ,  '');
+  materiel = new Materiel('', '', '', '', '', '', '', '');
 
 
   ngOnInit() {
     this.getMateriel();
-    /*this.materielSubscription =
-      this.listmaterielService.materielsSubject.subscribe(
-        (materiels: any[]) => {
-          this.materiels = materiels;
-        }
-      );
-    this.listmaterielService.emitMaterielSubject();*/
   }
 
   getMateriel(): void {
@@ -44,12 +35,10 @@ export class ListMaterielComponent implements OnInit, OnDestroy {
   }
 
   private resetErrors() {
-  this.success = '';
-  this.error   = '';
-}
-
-  ngOnDestroy() {
-    /*this.materielSubscription.unsubscribe();*/
+    this.success = '';
+    this.error = '';
   }
 
 }
+
+

@@ -17,7 +17,7 @@ export class ListClientService {
     this.headers.append('Content-Type', 'application/json');
   }
 
-
+  // Fonction POST
   saveClientToServer(client: Client): Observable<Client> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -29,7 +29,7 @@ export class ListClientService {
         catchError(this.handleError));
 
   }
-
+  // Fonction GET
   getClientFromServer(): Observable<Client[]> {
     return this.httpClient.get('http://localhost:8080/IntranetLbiWeb/rest/Intranet/getClient').pipe(
       map((res) => {
@@ -38,7 +38,7 @@ export class ListClientService {
       }),
       catchError(this.handleError));
   }
-
+  // Fonction PUT
   updateClient(client: Client): Observable<Client> {
     const httpOptions = {
       headers: new HttpHeaders({

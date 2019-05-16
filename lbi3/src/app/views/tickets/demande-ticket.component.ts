@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {NgForm} from '@angular/forms';
 import {ListDemandeService} from '../services/list-demande.service';
 import {Demande} from './demande';
 
@@ -15,7 +14,6 @@ export class DemandeTicketComponent implements OnInit {
   constructor(private listdemandeservice: ListDemandeService,
               private router: Router) { }
 
-  demandes: Demande[];
   error = '';
   success = '';
 

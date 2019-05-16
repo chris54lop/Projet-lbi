@@ -1,8 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
 import {ListTicketService} from '../services/list-ticket.service';
 import {Ticket} from './ticket';
-import {Utilisateur} from '../utilisateur/utilisateur';
 import {Router} from '@angular/router';
 
 @Component({

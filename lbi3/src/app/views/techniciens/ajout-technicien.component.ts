@@ -19,12 +19,6 @@ export class AjoutTechnicienComponent {
   constructor(private router: Router,
               private listtechnicienService: ListTechnicienService) {
   }
-  /*onSubmit3( form: NgForm) {
-    const nomt = form.value['nomt'];
-    const telx = form.value['telx'];
-    const fctx = form.value['fctx'];
-    this.router.navigate(['/techniciens/list-technicien']);
-  }*/
 
   onSubmit3() {
 
@@ -36,7 +30,7 @@ export class AjoutTechnicienComponent {
     this.listtechnicienService.saveTechnicienToServer(this.technicien)
       .subscribe(
         (res: Technicien[]) => {
-          // Update the list of materiel
+          // Update the list of technicien
           this.technicien = res;
 
           // Inform the user
